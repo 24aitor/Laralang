@@ -1,4 +1,4 @@
-# How to include on your app?
+# How to include Laralang on your app?
 
 
 **Step 1.** Require it with composer:
