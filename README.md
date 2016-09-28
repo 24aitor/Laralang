@@ -1,19 +1,19 @@
 # How to include on your app?
 
 
-1. Require it with composer:
+**Step 1.** Require it with composer:
 	
 ```
 composer require aitor24/laralang
 ```
 
-2. Register service providers adding the next line to config/app.php inside `'providers' => [` :
+**Step 2.** Register service providers adding the next line to config/app.php inside `'providers' => [` :
 
 ```
 Aitor24\Laralang\LaralangServiceProvider::class,
 ```
 
-> Example of use:
+**Example of use:**
 
 ```php
 @lang('laralang::base.welcome')
@@ -21,4 +21,8 @@ Aitor24\Laralang\LaralangServiceProvider::class,
 {{trans('laralang::base.welcome')}}
 
 {{trans('laralang::base.welcome_to', ['app_name' => 'Your app name'])}}
+
+{{trans_choice('laralang::base.users_mp', 1)}}
+
+{{trans_choice('laralang::base.users_mp', 5)}}
 ```
