@@ -1,6 +1,6 @@
 <?php
 
-namespace aitor24\laralang;
+namespace Aitor24\Laralang;
 
 use Illuminate\Support\ServiceProvider;
 
