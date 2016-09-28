@@ -1,0 +1,17 @@
+{
+    "name": "aitor24/laralang",
+    "description": "This package includes a list of translations frequently used in web pages.",
+    "type": "translations",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Aitor Riba",
+            "email": "1aitorribaarchilla@gmail.com"
+        }
+    ],
+	"autoload": {
+		"psr-4": {
+			"24aitor\\Laralang\\": "./src"
+		}
+	},
+}
