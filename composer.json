@@ -11,7 +11,7 @@
     ],
 	"autoload": {
 		"psr-4": {
-			"aitor24\\Laralang\\": "./src"
+			"Aitor24\\Laralang\\": "./src"
 		}
 	}
 }
