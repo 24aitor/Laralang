@@ -10,6 +10,6 @@ composer require aitor24/laralang
 2. Register service providers adding the next line to config/app.php inside `'providers' => [` :
 
 ```
-24aitor\laralang\LaralangServiceProvider::class,
+Aitor24\Laralang\LaralangServiceProvider::class,
 
 ```
