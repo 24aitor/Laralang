@@ -13,7 +13,7 @@ composer require aitor24/laralang
 Aitor24\Laralang\LaralangServiceProvider::class,
 ```
 
-**Example of use:**
+**Examples of use:**
 
 ```php
 @lang('laralang::base.welcome')
