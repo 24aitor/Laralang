@@ -37,6 +37,8 @@ return [
 	"change" => "Change",
     "select_lang" => "Select your language",
 
+	"welcome" => "Welcome",
+	"welcome_to" => "Welcome to :app_name",
 	
 	/*
     |--------------------------------------------------------------------------
@@ -52,7 +54,6 @@ return [
 	"mail" => "Mail",
 	"password" => "Password",
     "what_to_do" => "What do you want to do?",
-    "welcome" => "Welcome to :app_name",
     "welcome_back" => "Welcome back, :name",
 	
 	"account_settings"    => "Account Settings",
