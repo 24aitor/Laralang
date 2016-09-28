@@ -13,5 +13,5 @@
 		"psr-4": {
 			"aitor24\\Laralang\\": "./src"
 		}
-	},
+	}
 }
