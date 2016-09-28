@@ -26,8 +26,8 @@ return [
     "new"    => "Nuevo",
     "browse" => "Buscar",
 
-	"submit" => "Submit",
-    "cancel" => "Cancel",
+	"submit" => "Confirmar",
+    "cancel" => "Cancelar",
 	
     "delete"    => "Eliminar",
     "permanently_delete" => "Eliminar permanentemente",
@@ -90,7 +90,7 @@ return [
     "files" => "Archivos",
     "files_mp" => "Archivo|Archivos",
 
-    "no_files" => "No hay archivos todavía",
+    "no_files" => "Todavía no hay archivos",
     "find_files" => "Buscar archivos",
     
     "file_uploaded" => "El archivo ha sido subido!",
