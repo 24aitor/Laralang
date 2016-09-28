@@ -24,6 +24,7 @@ return [
 	"create"    => "Create",
 	"settings"    => "Settings",
 	"new"    => "New",
+	"browse" => "Browse",
 	
 	"delete"    => "Delete",
 	"permanently_delete" => "Permanently delete",
@@ -34,6 +35,7 @@ return [
 	"clean" => "Clean",
 	"save" => "Save",
 	"change" => "Change",
+    "select_lang" => "Select your language",
 
 	
 	/*
@@ -49,7 +51,9 @@ return [
 	"username" => "Username",
 	"mail" => "Mail",
 	"password" => "Password",
-
+    "what_to_do" => "What do you want to do?",
+    "welcome" => "Welcome to :app_name",
+    "welcome_back" => "Welcome back, :name",
 	
 	"account_settings"    => "Account Settings",
 	
@@ -79,26 +83,10 @@ return [
     "remain_documents" => "Some documents are pending to be accepted",
     "total_documents" => "Total documents",
     "documents" => "Documents",
-    "select_subject" => "Select subject",
-    "select_lang" => "Select your language",
-    "subject" => "Subject",
     "find_subjects" => "Find by subjects",
     "no_docs" => "There are no documents yet",
     "find_docs" => "Find docs",
     "file_uploaded" => "File has been uploaded succesfully!",
-    
 	
 	
-	"no_perm" => "You don't have any permission yet!",
-	
-	
-	
-	"browse" => "Browse",
-    "what_to_do" => "What do you want to do?",
-    "welcome" => "Welcome to :app_name",
-    "welcome_back" => "Welcome back, :name",
-
-
-
-
 ];
