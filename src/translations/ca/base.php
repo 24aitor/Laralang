@@ -1,17 +1,17 @@
 <?php
 
 return [
-    
+
     /*
     |
     |
     |--------------------------------------------------------------------------
-    |               __                       _                      
-    |              / /    __ _  _ __   __ _ | |  __ _  _ __    __ _ 
+    |               __                       _
+    |              / /    __ _  _ __   __ _ | |  __ _  _ __    __ _
     |             / /    / _` || '__| / _` || | / _` || '_ \  / _` |
     |            / /___ | (_| || |   | (_| || || (_| || | | || (_| |
     |            \____/  \__,_||_|    \__,_||_| \__,_||_| |_| \__, |
-    |                                                         |___/ 
+    |                                                         |___/
     |--------------------------------------------------------------------------
     |
     |
@@ -22,7 +22,10 @@ return [
     | Basic Language Lines
     |--------------------------------------------------------------------------
     */
-	
+
+    "home" => "Inici",
+    "dashboard" => "Panell principal",
+
     "edit"    => "Editar",
     "create"    => "Crear",
     "settings"    => "Ajustos",
@@ -31,7 +34,9 @@ return [
 
     "submit" => "Confirmar",
     "cancel" => "Cancel·lar",
-	
+    "back" => "Enrere",
+    "exit" => "Sortir",
+
     "delete"    => "Eliminar",
     "permanently_delete" => "Eliminar permanentement",
     "sure_delete" => "Estas segur que vols eliminar :var ?",
@@ -41,6 +46,7 @@ return [
     "save" => "Desar",
     "change" => "Canviar",
     "select_lang" => "Selecciona el teu idioma",
+    "language" => "Idioma",
 
     "welcome" => "Benvingut",
     "welcome_to" => "Benvingut a :app_name",
@@ -54,9 +60,8 @@ return [
     |--------------------------------------------------------------------------
     */
 
-
     "remember_me" => "Recorda'm",
-    "login" => "Iniciar sessió",	
+    "login" => "Iniciar sessió",
     "logout" => "Tancar sessió",
     "username" => "Nom d'Usuari",
     "mail" => "Email",
@@ -73,7 +78,7 @@ return [
     "incorrect_current_password" => "La contrasenya actual és incorrecta",
     "change_password" => "Canviar contrasenya",
     "password_changed" => "La contrasenya ha estat actualizada!",
-	
+
     "profile_picture" => "Imatge de perfil",
     "change_profile_picture" => "Cambiar imatge de perfil",
     "profile_picture_success" => "La imatge de perfil ha estat actualizada!",
@@ -81,13 +86,13 @@ return [
     "account_banned" => "Compte banejat",
     "account_banned_desc" => "El seu compte ha estat banejat",
 
-	
+
     /*
     |--------------------------------------------------------------------------
     | Files Language Lines
     |--------------------------------------------------------------------------
     */
-	
+
     "all_files"    => "Tots els arxius",
     "total_files" => "Arxius totals",
     "files" => "Arxius",
@@ -95,11 +100,21 @@ return [
 
     "no_files" => "Encara no hi han arxius",
     "find_files" => "Buscar arxius",
-    
+
     "file_uploaded" => "El arxiu ha estat pujat!",
     "file_deleted" => "El arxiu ha estat eliminat!",
-	
+
     "file_uploaded_mp" => "El arxiu ha estat pujat!|Els arxius han estat pujats!",
-    "file_deleted_mp" => "El arxiu ha estat pujat!|Els arxius han estat eliminats!",		
-	
+    "file_deleted_mp" => "El arxiu ha estat pujat!|Els arxius han estat eliminats!",
+
+    /*
+    |--------------------------------------------------------------------------
+    | Web Complements Language Lines
+    |--------------------------------------------------------------------------
+    */
+
+    "forum" => "Fòrum",
+    "charts" => "Gràfics",
+    "statistics" => "Estadístiques",
+
 ];

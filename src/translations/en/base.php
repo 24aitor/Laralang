@@ -6,12 +6,12 @@ return [
     |
     |
     |--------------------------------------------------------------------------
-    |               __                       _                      
-    |              / /    __ _  _ __   __ _ | |  __ _  _ __    __ _ 
+    |               __                       _
+    |              / /    __ _  _ __   __ _ | |  __ _  _ __    __ _
     |             / /    / _` || '__| / _` || | / _` || '_ \  / _` |
     |            / /___ | (_| || |   | (_| || || (_| || | | || (_| |
     |            \____/  \__,_||_|    \__,_||_| \__,_||_| |_| \__, |
-    |                                                         |___/ 
+    |                                                         |___/
     |--------------------------------------------------------------------------
     |
     |
@@ -22,7 +22,10 @@ return [
     | Basic Language Lines
     |--------------------------------------------------------------------------
     */
-	
+
+    "home" => "Home",
+    "dashboard" => "Dashboard",
+
     "edit"    => "Edit",
     "create"    => "Create",
     "settings"    => "Settings",
@@ -31,6 +34,8 @@ return [
 
     "submit" => "Submit",
     "cancel" => "Cancel",
+    "back" => "Back",
+    "exit" => "Exit",
 
     "delete"    => "Delete",
     "permanently_delete" => "Permanently delete",
@@ -41,6 +46,7 @@ return [
     "save" => "Save",
     "change" => "Change",
     "select_lang" => "Select your language",
+    "language" => "Language",
 
     "welcome" => "Welcome",
     "welcome_to" => "Welcome to :app_name",
@@ -54,9 +60,8 @@ return [
     |--------------------------------------------------------------------------
     */
 
-
     "remember_me" => "Remember me",
-    "login" => "Log in",	
+    "login" => "Log in",
     "logout" => "Log out",
     "username" => "Username",
     "mail" => "Mail",
@@ -73,7 +78,7 @@ return [
     "incorrect_current_password" => "The current password is incorrect",
     "change_password" => "Change password",
     "password_changed" => "The password has been updated!",
-	
+
     "profile_picture" => "Profile picture",
     "change_profile_picture" => "Change profile picture",
     "profile_picture_success" => "Profile picture updated!",
@@ -81,13 +86,13 @@ return [
     "account_banned" => "Account Banned",
     "account_banned_desc" => "Your account has been banned",
 
-	
+
     /*
     |--------------------------------------------------------------------------
     | Files Language Lines
     |--------------------------------------------------------------------------
     */
-	
+
     "all_files"    => "All files",
     "total_files" => "Total files",
     "files" => "Files",
@@ -95,11 +100,21 @@ return [
 
     "no_files" => "There are no files yet",
     "find_files" => "Find files",
-    
+
     "file_uploaded" => "File has been uploaded!",
     "file_deleted" => "File has been deleted!",
-	
+
     "file_uploaded_mp" => "File has been uploaded!|Files has been uploaded!",
-    "file_deleted_mp" => "File has been deleted!|Files has been deleted!",	
-	
+    "file_deleted_mp" => "File has been deleted!|Files has been deleted!",
+
+    /*
+    |--------------------------------------------------------------------------
+    | Web Complements Language Lines
+    |--------------------------------------------------------------------------
+    */
+
+    "forum" => "Forum",
+    "charts" => "Charts",
+    "statistics" => "Statistics",
+
 ];
