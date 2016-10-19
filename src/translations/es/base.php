@@ -28,29 +28,35 @@ return [
 
     "edit"    => "Editar",
     "create"    => "Crear",
+    "add"    => "Añadir",
     "settings"    => "Ajustes",
     "new"    => "Nuevo",
+    "manage"    => "Administrar",
     "browse" => "Buscar",
+    "browse_by" => "Buscar por :elements",
 
     "submit" => "Confirmar",
     "cancel" => "Cancelar",
     "back" => "Atrás",
     "exit" => "Salir",
 
+    "suppress" => "Suprimir",
     "delete"    => "Eliminar",
     "permanently_delete" => "Eliminar permanentemente",
     "sure_delete" => "Estas seguro que desear eliminar :var ?",
 
-    "suppress" => "Suprimir",
     "select" => "Seleccionar",
     "save" => "Guardar",
     "change" => "Cambiar",
     "select_lang" => "Selecciona tu idioma",
     "language" => "Idioma",
+    "this_language" => "Español",
+    "this_language_acronym" => "Es",
 
     "welcome" => "Bienvenido",
     "welcome_to" => "Bienvenido a :app_name",
 
+    "author" => "Autor",
     "users" => "Usuarios",
     "users_mp" => "Usuario|Usuarios",
 
@@ -60,17 +66,27 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    "remember_me" => "Recuerdame",
+    "profile" => "Perfil",
+
+    "register_now" => "Registrarse ahora",
+    "register" => "Registrar",
     "login" => "Iniciar sesión",
+    "log_in" => "Iniciar sesión",
     "logout" => "Cerrar sesión",
+    "log_out" => "Cerrar sesión",
     "username" => "Nombre de Usuario",
-    "mail" => "Email",
+    "mail" => "Correo",
+    "email" => "Correo electrónico",
     "password" => "Contraseña",
-    "what_to_do" => "Que deseas hacer?",
+    "remember_me" => "Recuerdame",
+    "forgot_password" => "¿Has olvidado tu contraseña?",
+
+    "what_to_do" => "¿Qué deseas hacer?",
     "welcome_back" => "Bienvenido de nuevo, :name",
 
     "account_settings" => "Ajustes de la cuenta",
 
+    "repeat_password" => "Repite la contraseña",
     "password_confirmation" => "Confirmar la contraseña",
     "new_password" => "Nueva contraseña",
     "new_password_confirmation" => "Confirmación de nueva contraseña",
@@ -85,7 +101,6 @@ return [
 
     "account_banned" => "Cuenta baneada",
     "account_banned_desc" => "Tu cuenta ha sido baneada",
-
 
     /*
     |--------------------------------------------------------------------------

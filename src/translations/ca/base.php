@@ -27,30 +27,36 @@ return [
     "dashboard" => "Panell principal",
 
     "edit"    => "Editar",
+    "add"    => "Afegir",
     "create"    => "Crear",
     "settings"    => "Ajustos",
     "new"    => "Nou",
+    "manage"    => "Administrar",
     "browse" => "Buscar",
+    "browse_by" => "Buscar per :elements",
 
     "submit" => "Confirmar",
     "cancel" => "Cancel·lar",
     "back" => "Enrere",
     "exit" => "Sortir",
 
+    "suppress" => "Suprimir",
     "delete"    => "Eliminar",
     "permanently_delete" => "Eliminar permanentement",
     "sure_delete" => "Estas segur que vols eliminar :var ?",
 
-    "suppress" => "Suprimir",
     "select" => "Seleccionar",
     "save" => "Desar",
     "change" => "Canviar",
     "select_lang" => "Selecciona el teu idioma",
     "language" => "Idioma",
+    "this_language" => "Català",
+    "this_language_acronym" => "Ca",
 
     "welcome" => "Benvingut",
     "welcome_to" => "Benvingut a :app_name",
 
+    "author" => "Autor",
     "users" => "Usuaris",
     "users_mp" => "Usuari|Usuaris",
 
@@ -60,17 +66,27 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    "remember_me" => "Recorda'm",
+    "profile" => "Perfil",
+
+    "register_now" => "Registra't ara",
+    "register" => "Registrar",
     "login" => "Iniciar sessió",
+    "log_in" => "Iniciar sessió",
     "logout" => "Tancar sessió",
+    "log_out" => "Tancar sessió",
     "username" => "Nom d'Usuari",
-    "mail" => "Email",
+    "mail" => "Correu",
+    "email" => "Correu electrònic",
     "password" => "Contrasenya",
+    "remember_me" => "Recorda'm",
+    "forgot_password" => "¿Has olvidat la teva contrasenya?",
+
     "what_to_do" => "Que vols fer?",
     "welcome_back" => "Benvingut de nou, :name",
 
     "account_settings" => "Ajustos de la compte",
 
+    "repeat_password" => "Repeteix la contrasenya",
     "password_confirmation" => "Confirmar la contrasenya",
     "new_password" => "Nova contrasenya",
     "new_password_confirmation" => "Confirmació de nova contrasenya",
@@ -85,7 +101,6 @@ return [
 
     "account_banned" => "Compte banejat",
     "account_banned_desc" => "El seu compte ha estat banejat",
-
 
     /*
     |--------------------------------------------------------------------------
