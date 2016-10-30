@@ -22,7 +22,7 @@ adding the next line to config/app.php inside `'aliases' => [` :
 
 
 ```
-'Laralang'   => Aitor24\Laralang\Laralang::class,
+'Laralang'   => Aitor24\Laralang\Facades\Laralang::class,
 ```
 
 
