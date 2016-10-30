@@ -13,7 +13,7 @@ class LaralangServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-    	$this->loadTranslationsFrom(__DIR__.'/translations', 'laralang');
+        $this->loadTranslationsFrom(__DIR__.'/translations', 'laralang');
     }
 
     /**
