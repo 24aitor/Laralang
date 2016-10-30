@@ -1,5 +1,7 @@
 # Laralang documentation
 
+[![StyleCI](https://styleci.io/repos/69460815/shield?branch=master)](https://styleci.io/repos/69460815)
+
 ## Getting Started
 
 ### Step 1. Require it with composer
