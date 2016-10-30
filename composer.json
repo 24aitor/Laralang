@@ -1,13 +1,21 @@
 {
     "name": "aitor24/laralang",
-    "description": "This package includes a list of translations frequently used in web pages.",
+    "description": "Translate strings from any lenguage to another in laravel 5.",
     "type": "translations",
     "license": "MIT",
     "authors": [
         {
             "name": "Aitor Riba",
-            "email": "1aitorribaarchilla@gmail.com"
-        }
+            "email": "1aitorribaarchilla@gmail.com",
+			"homepage": "http://www.aitorriba.ml/",
+			"role": "author"
+        },
+		{
+			"name": "Erik Campobadal",
+            "email": "soc@erik.cat",
+			"homepage": "https://erik.cat/",
+			"role": "developer"
+		}
     ],
 	"autoload": {
 		"psr-4": {
