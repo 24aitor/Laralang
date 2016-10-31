@@ -1,4 +1,4 @@
-# Laralang documentation
+# Laralang's documentation
 
 [![StyleCI](https://styleci.io/repos/69460815/shield?branch=master)](https://styleci.io/repos/69460815)
 ![License](https://img.shields.io/github/license/24aitor/laralang.svg?style=flat-square)
@@ -13,7 +13,7 @@ composer require aitor24/laralang
 
 ### Step 2. Register service provider
 
-adding the next line to config/app.php inside `'providers' => [` :
+Add the next line to config/app.php inside `'providers' => [` :
 
 ```
 Aitor24\Laralang\LaralangServiceProvider::class,
@@ -21,7 +21,7 @@ Aitor24\Laralang\LaralangServiceProvider::class,
 
 ### Step 3. Add Laralang Alias
 
-adding the next line to config/app.php inside `'aliases' => [` :
+Add the next line to config/app.php inside `'aliases' => [` :
 
 
 ```
@@ -31,6 +31,14 @@ adding the next line to config/app.php inside `'aliases' => [` :
 
 
 ## Examples
+
+### Traslations
+
+```php
+{!! Laralang::trans('hola mundo','es', 'ca') !!} <!-- it should print: hola món -->
+
+{!! Laralang::trans('hello word','es') !!} <!-- it should print: hola mundo -->
+```
 
 ### 'base' translations
 
@@ -44,12 +52,4 @@ adding the next line to config/app.php inside `'aliases' => [` :
 {{trans_choice('laralang::base.users_mp', 1)}}
 
 {{trans_choice('laralang::base.users_mp', 5)}}
-```
-
-### Traslations
-
-```php
-{!! Laralang::trans('hola mundo','es', 'ca') !!} <!-- it should print: hola món -->
-
-{!! Laralang::trans('hello word','es') !!} <!-- it should print: hola mundo -->
 ```
