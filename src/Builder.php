@@ -18,15 +18,14 @@ class Builder
         // Setup default values if needed
 
         if (!$from) {
-            $from = App::getLocale();
+            $from = 'en';
         }
 
         if (!$to) {
-            $to = 'en';
+            $to = App::getLocale();
         }
 
         // Return the value if the lenguage is the same
-
         if ($from == $to) {
             return $string;
         }
@@ -34,10 +33,10 @@ class Builder
         // Check if it can be translated from online sources.
 
         $domain = 'api.apertium.org';
-        $string = str_replace(' ', '%20', $string);
+        $urlString = str_replace(' ', '%20', $string);
 
         if (gethostbyname($domain) != $domain) {
-            $url = "http://$domain/json/translate?q=$string&langpair=$from%7C$to";
+            $url = "http://$domain/json/translate?q=$urlString&langpair=$from%7C$to";
             $json = file_get_contents($url);
             $data = json_decode($json);
 
