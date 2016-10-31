@@ -1,6 +1,6 @@
 {
     "name": "aitor24/laralang",
-    "description": "Translate strings from any lenguage to another in laravel 5.",
+    "description": "This package let you translate strings from any language to another in laravel 5.x",
     "type": "translations",
     "license": "MIT",
     "authors": [
