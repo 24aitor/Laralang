@@ -1,6 +1,7 @@
 # Laralang documentation
 
 [![StyleCI](https://styleci.io/repos/69460815/shield?branch=master)](https://styleci.io/repos/69460815)
+![License](https://img.shields.io/github/license/24aitor/laralang.svg?style=flat-square)
 
 ## Getting Started
 
