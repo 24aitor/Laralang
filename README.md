@@ -1,7 +1,8 @@
 # Laralang's documentation
 
+[![GitHub release](https://img.shields.io/github/release/24aitor/laralang.svg?style=flat-square)]()
 [![StyleCI](https://styleci.io/repos/69460815/shield?branch=master)](https://styleci.io/repos/69460815)
-![License](https://img.shields.io/github/license/24aitor/laralang.svg?style=flat-square)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/24aitor/laralang/master/LICENSE)
 
 ## Getting Started
 
@@ -48,7 +49,6 @@ You shold call it like:
 
 {!! Laralang::trans('<your string>', '<from_locale>', '<to_locale>') !!} <!-- structure -->
 
-
 {!! Laralang::trans('Hello world', 'en', 'es') !!} <!-- it should prints: Hola mundo -->
 
 ```
@@ -57,7 +57,7 @@ Moreover, you can call it without define <from_locale> nor <to_locale>, and it w
 
 ```php
 
-{!! Laralang::trans('hello world') !!}
+{!! Laralang::trans('Hello world') !!}
 
 ```
 
@@ -65,7 +65,7 @@ Moreover, you can call it without define <from_locale> nor <to_locale>, and it w
 
 Debug option let you to know the reason of an unexpected result.
 
-When you download our project, debug default value is true but you can modify in `config/laralang.php`. Furthermore you can modify it in a specific translation like next example.
+When you download our project, debug default value is false but you can modify in `config/laralang.php`. Furthermore you can modify it in a specific translation like next example.
 
 ```php
 
@@ -73,10 +73,10 @@ When you download our project, debug default value is true but you can modify in
 
 ```
 
-
 ### 'base' translations
 
 ```php
+
 @lang('laralang::base.welcome')
 
 {{trans('laralang::base.welcome')}}
@@ -86,4 +86,5 @@ When you download our project, debug default value is true but you can modify in
 {{trans_choice('laralang::base.users_mp', 1)}}
 
 {{trans_choice('laralang::base.users_mp', 5)}}
+
 ```
