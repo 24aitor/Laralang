@@ -8,6 +8,8 @@ return [
     */
     'default'   => [
         'translator'     => 'apertium',
-        'debug'          => 'false',
+        'debug'          => false,
+        'from_lang'      => 'en',
+        'to_lang'        => 'app_locale',
     ],
 ];
