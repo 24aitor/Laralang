@@ -2,7 +2,7 @@
 
 namespace Aitor24\Laralang\Facades;
 
-use Aitor24\Laralang\Builder;
+use Aitor24\Laralang\Translation;
 use Illuminate\Support\Facades\Facade;
 
 class Laralang extends Facade
@@ -12,8 +12,8 @@ class Laralang extends Facade
      *
      * @return string
      */
-    protected static function getFacadeAccessor()
-    {
-        return Builder::class;
+
+    public static function trans($string, $from = null, $to = null) {
+        return new Translation($string, $from, $to);
     }
 }
