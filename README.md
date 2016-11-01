@@ -2,7 +2,7 @@
 
 [![GitHub release](https://img.shields.io/github/release/24aitor/laralang.svg?style=flat-square)]()
 [![StyleCI](https://styleci.io/repos/69460815/shield?branch=master)](https://styleci.io/repos/69460815)
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/24aitor/laralang/master/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/24aitor/laralang.svg?style=flat-square)](https://raw.githubusercontent.com/24aitor/laralang/master/LICENSE)
 
 ## Getting Started
 
@@ -25,7 +25,6 @@ Aitor24\Laralang\LaralangServiceProvider::class,
 ### Step 3. Add Laralang Alias
 
 Add the next line to config/app.php inside `'aliases' => [` :
-
 
 ```
 'Laralang'   => Aitor24\Laralang\Facades\Laralang::class,
