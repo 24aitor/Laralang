@@ -7,6 +7,8 @@
 
 ### Step 1. Require it with composer
 
+You should run next command:
+
 ```
 composer require aitor24/laralang
 ```
@@ -28,7 +30,13 @@ Add the next line to config/app.php inside `'aliases' => [` :
 'Laralang'   => Aitor24\Laralang\Facades\Laralang::class,
 ```
 
+### Step 4. Publish config file
 
+You should run next command:
+
+```
+php artisan vendor:publish --tag=laralang_config
+```
 
 ## Examples
 
