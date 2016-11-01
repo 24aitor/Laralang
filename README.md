@@ -34,11 +34,37 @@ Add the next line to config/app.php inside `'aliases' => [` :
 
 ### Traslations
 
-```php
-{!! Laralang::trans('hola mundo','es', 'ca') !!} <!-- it should print: hola món -->
+You shold call it like:
 
-{!! Laralang::trans('hello word','es') !!} <!-- it should print: hola mundo -->
+```php
+
+{!! Laralang::trans('<your string>', '<from_locale>', '<to_locale>') !!} <!-- structure -->
+
+
+{!! Laralang::trans('Hello world', 'en', 'es') !!} <!-- it should prints: Hola mundo -->
+
 ```
+
+Moreover, you can call it without define <from_locale> nor <to_locale>, and it would setup default values of `config/laralang.php`.
+
+```php
+
+{!! Laralang::trans('hello world') !!}
+
+```
+
+#### Debugging translations
+
+Debug option let you to know the reason of an unexpected result.
+
+When you download our project, debug default value is true but you can modify in `config/laralang.php`. Furthermore you can modify it in a specific translation like next example.
+
+```php
+
+{!! Laralang::trans('hello world')->setDebug(true) !!}
+
+```
+
 
 ### 'base' translations
 
