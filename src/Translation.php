@@ -4,14 +4,11 @@ namespace Aitor24\Laralang;
 
 use App;
 
-
 class Translation
 {
-
     /**
-    * Setup public vars.
-    *
-    */
+     * Setup public vars.
+     */
     public $translator;
     public $translation;
     public $string;
@@ -20,12 +17,12 @@ class Translation
     public $to;
 
     /**
-    * Setup default values.
-    *
-    * @param string $string
-    * @param string $from
-    * @param string $to
-    */
+     * Setup default values.
+     *
+     * @param string $string
+     * @param string $from
+     * @param string $to
+     */
     public function __construct($string, $from = null, $to = null)
     {
         $this->translator = config('laralang.default.translator');
@@ -47,28 +44,28 @@ class Translation
 
         // Checking whether from_lang or to_lang are set as language.
 
-        if ($this->from == 'app_locale'){
+        if ($this->from == 'app_locale') {
             $this->from = App::getLocale();
         }
 
-        if ($this->to == 'app_locale'){
+        if ($this->to == 'app_locale') {
             $this->to = App::getLocale();
         }
-
     }
 
     public function setDebug($debug)
     {
         $this->debug = $debug;
+
         return $this;
     }
 
     public function setTranslator($translator)
     {
         $this->translator = $translator;
+
         return $this;
     }
-
 
     public function run()
     {
@@ -79,6 +76,7 @@ class Translation
             if ($this->debug == true) {
                 $this->translation = '<font style="color:orange;">Same in <> out languge</font>';
             }
+
             return;
         }
 
@@ -88,24 +86,22 @@ class Translation
 
         // Checks available translators.
 
-        if (in_array($this->translator, $available_transoltors) == False){
-            if ($this->debug == True){
+        if (in_array($this->translator, $available_transoltors) == false) {
+            if ($this->debug == true) {
                 $this->translation = '<font style="color:red;">Not suported translator: '.$this->translator.'</font>';
             }
+
             return;
         }
 
         if ($this->translator == 'apertium') {
-            return Translation::apertiumTrans();
+            return self::apertiumTrans();
         }
-
     }
 
-
-
     /**
-    * Get translation from apertium API
-    */
+     * Get translation from apertium API.
+     */
     public function apertiumTrans()
     {
         // Check if it can be translated from online sources.
@@ -122,8 +118,9 @@ class Translation
 
             if ($data->responseStatus != 200) {
                 if ($this->debug == true) {
-                    $this->translation = "<font style='color:red;'>Error ".$data->responseStatus.': '.$data->responseDetails."</font>";
+                    $this->translation = "<font style='color:red;'>Error ".$data->responseStatus.': '.$data->responseDetails.'</font>';
                 }
+
                 return;
             }
 
@@ -131,7 +128,7 @@ class Translation
 
             // replacing special characters
 
-            $toReplace = [ '_' => ' '];
+            $toReplace = ['_' => ' '];
             foreach ($toReplace as $current => $next) {
                 $transObtained = str_replace($current, $next, $transObtained);
             }
@@ -142,39 +139,41 @@ class Translation
             // Checking debug setting to determinate how to output translation
 
             if ($this->debug == true) {
-                $errors = array();
+                $errors = [];
                 $words = explode(' ', $transObtained);
                 foreach ($words as $word) {
                     if ($word != '') {
-                        if ($word[0] == '*'){
-                            array_push($errors, substr($word, 1) );
+                        if ($word[0] == '*') {
+                            array_push($errors, substr($word, 1));
                         }
                     }
                 }
                 if (count($errors) == 0) {
-                    $this->translation = "<font style='color:#00CC00;'>".$this->translation."</font>";
+                    $this->translation = "<font style='color:#00CC00;'>".$this->translation.'</font>';
                 } else {
                     $errorWords = 'Unknoun words: ';
-                    foreach($errors as $error){
+                    foreach ($errors as $error) {
                         $errorWords = $errorWords.$error.', ';
                     }
 
-                    $this->translation = "<font style='color:orange;'>".substr($errorWords, 0, -2)."</font>";
+                    $this->translation = "<font style='color:orange;'>".substr($errorWords, 0, -2).'</font>';
                 }
             }
+
             return;
         } else {
             if ($this->debug == true) {
                 $this->translation = "<font style='color:red;'>Apertium host is down</font>";
             }
+
             return;
         }
-
     }
 
+    public function __toString()
+    {
+        self::run();
 
-    public function __toString(){
-        Translation::run();
         return $this->translation;
     }
 }
