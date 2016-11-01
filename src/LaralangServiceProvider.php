@@ -16,7 +16,7 @@ class LaralangServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../config/laralang.php' => config_path('laralang.php'),
         ], 'laralang_config');
-        
+
         $this->loadTranslationsFrom(__DIR__.'/translations', 'laralang');
     }
 
