@@ -1,6 +1,6 @@
 # Laralang's documentation
 
-[![GitHub release](https://img.shields.io/github/release/24aitor/laralang.svg?style=flat-square)]()
+[![GitHub release](https://img.shields.io/github/release/24aitor/laralang.svg?style=flat-square)](https://github.com/24aitor/laralang/releases)
 [![StyleCI](https://styleci.io/repos/69460815/shield?branch=master)](https://styleci.io/repos/69460815)
 [![GitHub license](https://img.shields.io/github/license/24aitor/laralang.svg?style=flat-square)](https://raw.githubusercontent.com/24aitor/laralang/master/LICENSE)
 
