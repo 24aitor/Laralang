@@ -20,7 +20,6 @@ class Translation
      * Setup default values.
      *
      * @param string $string
-     *
      */
     public function __construct($string)
     {
@@ -100,13 +99,13 @@ class Translation
      *
      */
 
-    public function run()
+    private function run()
     {
 
         // Return the value if the language is the same.
 
         if ($this->from == $this->to) {
-            if ($this->debug == true) {
+            if ($this->debug === true) {
                 $this->translation = "<font style='color:orange;'>Same in <> out languge</font>";
             }
 
@@ -119,7 +118,7 @@ class Translation
         // Checks available translators.
 
         if (in_array($this->translator, $available_transoltors) == false) {
-            if ($this->debug == true) {
+            if ($this->debug === true) {
                 $this->translation = "<font style='color:red;'>Not suported translator: ".$this->translator."</font>";
             }
 
@@ -130,7 +129,7 @@ class Translation
             return $this->apertiumTrans();
         }
 
-        if ($this->translator == 'mymemory') {
+        elseif ($this->translator == 'mymemory') {
             return $this->mymemoryTrans();
         }
 
@@ -139,7 +138,7 @@ class Translation
     /**
      * Get translation from mymemory API.
      */
-     public function mymemoryTrans()
+     private function mymemoryTrans()
      {
          // Check if it can be translated from online sources.
 
@@ -173,7 +172,7 @@ class Translation
 
              // Checking debug setting to determinate how to output translation
 
-             if ($this->debug == true) {
+             if ($this->debug === true) {
                  $errors = '';
                  $words = explode(' ', $transObtained);
                  foreach ($words as $word) {
@@ -196,12 +195,8 @@ class Translation
 
          } else {
 
-             // host offline
-
-             if ($this->debug == true) {
-                 $this->translation = "<font style='color:red;'>Mymeory host is down</font>";
-             }
-             return;
+             //host offline
+             $this->hostDown();
          }
      }
 
@@ -209,7 +204,7 @@ class Translation
      * Get translation from apertium API.
      */
 
-    public function apertiumTrans()
+    private function apertiumTrans()
     {
         // Check if it can be translated from online sources.
 
@@ -226,7 +221,7 @@ class Translation
             // Checking response status
 
             if ($data->responseStatus != 200) {
-                if ($this->debug == true) {
+                if ($this->debug === true) {
                     $this->translation = "<font style='color:red;'>Error ".$data->responseStatus.': '.$data->responseDetails.'</font>';
                 }
 
@@ -241,7 +236,7 @@ class Translation
 
             // Checking debug setting to determinate how to output translation
 
-            if ($this->debug == true) {
+            if ($this->debug === true) {
                 $errors = '';
                 $words = explode(' ', $transObtained);
                 foreach ($words as $word) {
@@ -264,17 +259,24 @@ class Translation
 
         } else {
             //host offline
-            if ($this->debug == true) {
-                $this->translation = "<font style='color:red;'>Apertium host is down</font>";
-            }
-            return;
+            $this->hostDown();
         }
     }
 
     /*
-     * This fuction is called by trans() function of Fadade Laralang
+     * This fuction is called when host is down, and it would set translation if debug is true
      *
-     * It would call run() function of this class and returns the translation 
+     */
+    private function hostDown() {
+        if ($this->debug === true) {
+            $this->translation = "<font style='color:red;'>$this->translator host is down</font>";
+        }
+        return;
+    }
+
+    /*
+     * This fuction is called by trans() function of Fadade Laralang
+     * It would call run() function of this class and returns the translation
      *
      */
     public function __toString()
