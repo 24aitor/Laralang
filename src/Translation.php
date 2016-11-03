@@ -173,22 +173,10 @@ class Translation
              // Checking debug setting to determinate how to output translation
 
              if ($this->debug === true) {
-                 $errors = '';
-                 $words = explode(' ', $transObtained);
-                 foreach ($words as $word) {
-                     if ($word != '') {
-                         if ($word[0] == '*') {
-                             $errors = $errors.substr($word, 1).', ';
-                         }
-                     }
-                 }
-
-                 if ($errors == '') {
                      $this->translation = "<font style='color:#00CC00;'>".$this->translation."</font>";
                  } else {
                      $this->translation = "<font style='color:orange;'>Unknoun words: ".substr($errors, 0, -2)."</font>";
-                 }
-             }
+            }
 
              fclose($socket);
              return;
