@@ -88,12 +88,28 @@ Default values can be modified on `config/laralang.php`. Furthermore you can mod
 
 Then few examples:
 
+
+![Result of example](https://goo.gl/XiqJ23)
+
 ```php
+{!! Laralang::trans('Hello world!') !!}
 
-{!! Laralang::trans('hello world')->setToLang('es')->setDebug(true) !!}
+<br>
 
-{!! Laralang::trans('Ejemplo')->setFromLang('es')->setToLang('pt')->setTranslator('apertium')->setDebug(true) !!}
+{!! Laralang::trans('Hello world!')->setDebug(true) !!}
 
+<br>
+
+{!! Laralang::trans('Hello world!')->setDebug(true)->setToLang('de') !!}
+
+<br>
+
+{!! Laralang::trans('Hallo welt!')->setFromLang('de')->setToLang('fr') !!}
+
+<br>
+
+{!! Laralang::trans('Hallo welt!')->setDebug(true)->setFromLang('de')->setToLang('fr')->setTranslator('apertium') !!}
+<!-- it fails because apertium doesn't support this lang pair -->
 ```
 
 
