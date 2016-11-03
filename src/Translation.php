@@ -20,8 +20,7 @@ class Translation
      * Setup default values.
      *
      * @param string $string
-     * @param string $from
-     * @param string $to
+     *
      */
     public function __construct($string)
     {
@@ -272,6 +271,12 @@ class Translation
         }
     }
 
+    /*
+     * This fuction is called by trans() function of Fadade Laralang
+     *
+     * It would call run() function of this class and returns the translation 
+     *
+     */
     public function __toString()
     {
         $this->run();
