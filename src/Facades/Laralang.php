@@ -16,8 +16,8 @@ class Laralang extends Facade
      *
      * @return string method of object
      */
-    public static function trans($string, $from = null, $to = null)
+    public static function trans($string)
     {
-        return new Translation($string, $from, $to);
+        return new Translation($string);
     }
 }

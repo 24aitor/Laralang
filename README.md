@@ -1,7 +1,9 @@
 # Laralang's documentation
 
-[![GitHub release](https://img.shields.io/github/release/24aitor/laralang.svg?style=flat-square)](https://github.com/24aitor/laralang/releases)
+[![Latest Stable Version](https://poser.pugx.org/aitor24/laralang/v/stable?format=flat-square)](https://packagist.org/packages/aitor24/laralang)
+[![Latest Unstable Version](https://poser.pugx.org/aitor24/laralang/v/unstable?format=flat-square)](https://packagist.org/packages/aitor24/laralang)
 [![StyleCI](https://styleci.io/repos/69460815/shield?branch=master)](https://styleci.io/repos/69460815)
+[![Scrutinizer](https://img.shields.io/scrutinizer/g/filp/whoops.svg?style=flat-square)](https://scrutinizer-ci.com/g/24aitor/laralang/?branch=master)
 [![GitHub license](https://img.shields.io/github/license/24aitor/laralang.svg?style=flat-square)](https://raw.githubusercontent.com/24aitor/laralang/master/LICENSE)
 
 ## Getting Started
@@ -46,31 +48,55 @@ You shold call it like:
 
 ```php
 
-{!! Laralang::trans('<your string>', '<from_locale>', '<to_locale>') !!} <!-- structure -->
-
-{!! Laralang::trans('Hello world', 'en', 'es') !!} <!-- it should prints: Hola mundo -->
-
-```
-
-Moreover, you can call it without define <from_locale> nor <to_locale>, and it would setup default values of `config/laralang.php`.
-
-```php
-
 {!! Laralang::trans('Hello world') !!}
 
 ```
 
-#### Debugging translations
+*Currently there are two available translators: apertium, mymemory. But we strongly recommend to use mymemory.*
 
-Debug option let you to know the reason of an unexpected result.
+#### Functions
 
-When you download our project, debug default value is false but you can modify in `config/laralang.php`. Furthermore you can modify it in a specific translation like next example.
+Moreover you can use different functions in each translation.
+
+**setFromLang()**
+
+
+It sets the language of the string to translate in a specific translation.
+
+*Default: en*
+
+**SetToLang()**
+
+It sets the language that you'll output in a specific translation.
+
+*Default: app_locale*
+
+**SetTranslator()**
+
+This option let you to change the default translator in a specific translation.
+
+*Default: mymemory*
+
+**setDebug()**
+
+Debug option let you to know the reason of an unexpected result with colorful messages in a specific translation.
+
+*Default: false*
+
+***************
+
+Default values can be modified on `config/laralang.php`. Furthermore you can modify it in a specific translation with the functions above.
+
+Then few examples:
 
 ```php
 
-{!! Laralang::trans('hello world')->setDebug(true) !!}
+{!! Laralang::trans('hello world')->setToLang('es')->setDebug(true) !!}
+
+{!! Laralang::trans('Ejemplo')->setFromLang('es')->setToLang('pt')->setTranslator('apertium')->setDebug(true) !!}
 
 ```
+
 
 ### 'base' translations
 

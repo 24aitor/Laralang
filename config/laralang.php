@@ -7,7 +7,7 @@ return [
     |--------------------------------------------------------------------------
     */
     'default'   => [
-        'translator'     => 'apertium',
+        'translator'     => 'mymemory',
         'debug'          => false,
         'from_lang'      => 'en',
         'to_lang'        => 'app_locale',
