@@ -3,7 +3,7 @@
 [![Latest Stable Version](https://poser.pugx.org/aitor24/laralang/v/stable?format=flat-square)](https://packagist.org/packages/aitor24/laralang)
 [![Latest Unstable Version](https://poser.pugx.org/aitor24/laralang/v/unstable?format=flat-square)](https://packagist.org/packages/aitor24/laralang)
 [![StyleCI](https://styleci.io/repos/69460815/shield?branch=master)](https://styleci.io/repos/69460815)
-[![Scrutinizer](https://img.shields.io/scrutinizer/g/filp/whoops.svg?style=flat-square)](https://scrutinizer-ci.com/g/24aitor/laralang/?branch=master)
+[![Scrutinizer](https://img.shields.io/scrutinizer/g/24aitor/laralang.svg?style=flat-square)](https://scrutinizer-ci.com/g/24aitor/laralang/?branch=master)
 [![GitHub license](https://img.shields.io/github/license/24aitor/laralang.svg?style=flat-square)](https://raw.githubusercontent.com/24aitor/laralang/master/LICENSE)
 
 ## Getting Started
