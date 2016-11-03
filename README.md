@@ -113,7 +113,7 @@ Then few examples of tranlsation:
 
 Then the result:
 
-![Result of example](https://goo.gl/XiqJ23)
+![Result of example](http://i.imgur.com/KpF2Lj3.png)
 
 ### 'base' translations
 
