@@ -20,7 +20,6 @@ class Translation
      * Setup default values.
      *
      * @param string $string
-     *
      */
     public function __construct($string)
     {
@@ -34,18 +33,20 @@ class Translation
 
         // Checking whether from_lang or to_lang are set as app_locale.
 
-        if ($this->from == 'app_locale') {$this->from = App::getLocale();}
+        if ($this->from == 'app_locale') {
+            $this->from = App::getLocale();
+        }
 
-        if ($this->to == 'app_locale') {$this->to = App::getLocale();}
+        if ($this->to == 'app_locale') {
+            $this->to = App::getLocale();
+        }
     }
 
-
     /**
-     * Setup debug value
+     * Setup debug value.
      *
-     * @param boolean $debug
+     * @param bool $debug
      */
-
     public function setDebug($debug)
     {
         $this->debug = $debug;
@@ -54,11 +55,10 @@ class Translation
     }
 
     /**
-     * Setup fromLang value
+     * Setup fromLang value.
      *
      * @param string $lang
      */
-
     public function setFromLang($lang)
     {
         $this->from = $lang;
@@ -67,11 +67,10 @@ class Translation
     }
 
     /**
-     * Setup tolang value
+     * Setup tolang value.
      *
      * @param string $lang
      */
-
     public function setToLang($lang)
     {
         $this->to = $lang;
@@ -79,13 +78,11 @@ class Translation
         return $this;
     }
 
-
     /**
-     * Setup translator
+     * Setup translator.
      *
      * @param string $translator
      */
-
     public function setTranslator($translator)
     {
         $this->translator = $translator;
@@ -94,12 +91,10 @@ class Translation
     }
 
     /**
-     * Main function of the class
+     * Main function of the class.
      *
      * Check what translator must select
-     *
      */
-
     public function run()
     {
 
@@ -120,7 +115,7 @@ class Translation
 
         if (in_array($this->translator, $available_transoltors) == false) {
             if ($this->debug == true) {
-                $this->translation = "<font style='color:red;'>Not suported translator: ".$this->translator."</font>";
+                $this->translation = "<font style='color:red;'>Not suported translator: ".$this->translator.'</font>';
             }
 
             return;
@@ -133,18 +128,17 @@ class Translation
         if ($this->translator == 'mymemory') {
             return $this->mymemoryTrans();
         }
-
     }
 
-    /**
-     * Get translation from mymemory API.
-     */
+     /**
+      * Get translation from mymemory API.
+      */
      public function mymemoryTrans()
      {
          // Check if it can be translated from online sources.
 
          $host = 'api.mymemory.translated.net';
-         if($socket =@ fsockopen($host, 80, $errno, $errstr, 30)) {
+         if ($socket = @fsockopen($host, 80, $errno, $errstr, 30)) {
 
              // Host online
              $urlString = urlencode($this->string);
@@ -158,9 +152,9 @@ class Translation
                  if ($this->debug == true) {
                      $details = $data->responseDetails;
                      if ($data->responseStatus == 403) {
-                         $details =($data->responseDetails);
+                         $details = ($data->responseDetails);
                      }
-                     $this->translation = "<font style='color:red;'>Error ".$data->responseStatus.": ".$details."</font>";
+                     $this->translation = "<font style='color:red;'>Error ".$data->responseStatus.': '.$details.'</font>';
                  }
 
                  return;
@@ -185,15 +179,15 @@ class Translation
                  }
 
                  if ($errors == '') {
-                     $this->translation = "<font style='color:#00CC00;'>".$this->translation."</font>";
+                     $this->translation = "<font style='color:#00CC00;'>".$this->translation.'</font>';
                  } else {
-                     $this->translation = "<font style='color:orange;'>Unknoun words: ".substr($errors, 0, -2)."</font>";
+                     $this->translation = "<font style='color:orange;'>Unknoun words: ".substr($errors, 0, -2).'</font>';
                  }
              }
 
              fclose($socket);
-             return;
 
+             return;
          } else {
 
              // host offline
@@ -201,6 +195,7 @@ class Translation
              if ($this->debug == true) {
                  $this->translation = "<font style='color:red;'>Mymeory host is down</font>";
              }
+
              return;
          }
      }
@@ -208,13 +203,12 @@ class Translation
     /**
      * Get translation from apertium API.
      */
-
     public function apertiumTrans()
     {
         // Check if it can be translated from online sources.
 
         $host = 'api.apertium.org';
-        if($socket =@ fsockopen($host, 80, $errno, $errstr, 30)) {
+        if ($socket = @fsockopen($host, 80, $errno, $errstr, 30)) {
 
             // Host online
 
@@ -260,13 +254,14 @@ class Translation
             }
 
             fclose($socket);
-            return;
 
+            return;
         } else {
             //host offline
             if ($this->debug == true) {
                 $this->translation = "<font style='color:red;'>Apertium host is down</font>";
             }
+
             return;
         }
     }
@@ -274,7 +269,7 @@ class Translation
     /*
      * This fuction is called by trans() function of Fadade Laralang
      *
-     * It would call run() function of this class and returns the translation 
+     * It would call run() function of this class and returns the translation
      *
      */
     public function __toString()

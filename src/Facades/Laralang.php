@@ -13,7 +13,6 @@ class Laralang extends Facade
      * @param string $string
      *
      * @return string method of object
-     *
      */
     public static function trans($string)
     {
