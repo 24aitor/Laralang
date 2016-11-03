@@ -174,8 +174,6 @@ class Translation
 
              if ($this->debug === true) {
                      $this->translation = "<font style='color:#00CC00;'>".$this->translation."</font>";
-                 } else {
-                     $this->translation = "<font style='color:orange;'>Unknoun words: ".substr($errors, 0, -2)."</font>";
             }
 
              fclose($socket);
