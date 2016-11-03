@@ -86,10 +86,9 @@ Debug option let you to know the reason of an unexpected result with colorful me
 
 Default values can be modified on `config/laralang.php`. Furthermore you can modify it in a specific translation with the functions above.
 
-Then few examples:
+Then few examples of tranlsation:
 
 
-![Result of example](https://goo.gl/XiqJ23)
 
 ```php
 {!! Laralang::trans('Hello world!') !!}
@@ -112,6 +111,9 @@ Then few examples:
 <!-- it fails because apertium doesn't support this lang pair -->
 ```
 
+Then the result:
+
+![Result of example](https://goo.gl/XiqJ23)
 
 ### 'base' translations
 
