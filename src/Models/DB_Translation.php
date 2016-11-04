@@ -8,7 +8,8 @@ class DB_Translation extends Model
 {
     protected $table = 'laralang';
 
-    public function getId(){
+    public function getId()
+    {
         return 'Translation_'.$this->id;
     }
 }
