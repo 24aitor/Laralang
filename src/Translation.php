@@ -4,6 +4,11 @@ namespace Aitor24\Laralang;
 
 use App;
 
+use Aitor24\Laralang\Models\DB_Translation;
+
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+
 class Translation
 {
     /**
@@ -90,6 +95,45 @@ class Translation
         return $this;
     }
 
+    private function exists()
+    {
+        $existing = DB_Translation::where('string', '=', $this->string)
+        ->where('from_lang', '=', $this->from)
+        ->where('to_lang', '=', $this->to)
+        ->where('translator', '=', $this->translator)->get();
+
+        if (count($existing) == 0){
+            return false;
+        }
+        if ($this->debug === true) {
+            $this->translation = "<font style='color:#00CC00;'>Loaded correclty from you DB</font>";
+        } else {
+            $this->translation = $existing[0]->translation;
+        }
+        return true;
+
+    }
+
+    /**
+     * Function to save translations to DB
+     */
+    private function save()
+    {
+
+        $trans = new DB_Translation;
+        $trans->save();
+        $trans->alias = $trans->getId();
+        $trans->string = $this->string;
+        $trans->from_lang = $this->from;
+        $trans->to_lang = $this->to;
+        $trans->translator = $this->translator;
+        $trans->translation = $this->translation;
+        $trans->save();
+
+    }
+
+
+
     /**
      * Main function of the class.
      *
@@ -108,6 +152,10 @@ class Translation
             return;
         }
 
+
+        if ($this->exists() === true) {
+            return;
+        }
 
         $available_transoltors = ['apertium', 'mymemory'];
 
@@ -158,10 +206,12 @@ class Translation
                  return;
              }
 
+
              $transObtained = $data->responseData->translatedText;
 
-             $this->translation = ucfirst(strtolower(trim($transObtained)));
+             $this->translation = utf8_decode(ucfirst(strtolower(trim($transObtained))));
 
+             $this->save();
 
              // Checking debug setting to determinate how to output translation
 
@@ -169,9 +219,9 @@ class Translation
                  $this->translation = "<font style='color:#00CC00;'>".$this->translation.'</font>';
              }
 
-             fclose($socket);
 
              return;
+             fclose($socket);
          } else {
 
              //host offline

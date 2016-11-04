@@ -1,6 +1,5 @@
 # Laralang's documentation
 
-[![Latest Stable Version](https://poser.pugx.org/aitor24/laralang/v/stable?format=flat-square)](https://packagist.org/packages/aitor24/laralang)
 [![StyleCI](https://styleci.io/repos/69460815/shield?branch=master)](https://styleci.io/repos/69460815)
 [![Scrutinizer](https://img.shields.io/scrutinizer/g/24aitor/laralang.svg?style=flat-square)](https://scrutinizer-ci.com/g/24aitor/laralang/?branch=master)
 [![GitHub license](https://img.shields.io/github/license/24aitor/laralang.svg?style=flat-square)](https://raw.githubusercontent.com/24aitor/laralang/master/LICENSE)
@@ -45,7 +44,7 @@ php artisan vendor:publish --tag=laralang_config
 
 You shold call it like:
 
-```php
+```html
 
 {!! Laralang::trans('Hello world') !!}
 
@@ -90,7 +89,7 @@ Then few examples of tranlsation:
 
 
 
-```php
+```html
 {!! Laralang::trans('Hello world!') !!}
 
 <br>
@@ -117,7 +116,7 @@ Then the result:
 
 ### 'base' translations
 
-```php
+```html
 
 @lang('laralang::base.welcome')
 

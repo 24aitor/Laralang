@@ -18,6 +18,7 @@ class LaralangServiceProvider extends ServiceProvider
         ], 'laralang_config');
 
         $this->loadTranslationsFrom(__DIR__.'/translations', 'laralang');
+        $this->loadMigrationsFrom(__DIR__.'/Migrations', 'laralang');
     }
 
     /**
