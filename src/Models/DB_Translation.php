@@ -7,5 +7,4 @@ use Illuminate\Database\Eloquent\Model;
 class DB_Translation extends Model
 {
     protected $table = 'laralang';
-
 }

@@ -5,9 +5,7 @@ namespace Aitor24\Laralang;
 use App;
 
 use Aitor24\Laralang\Models\DB_Translation;
-
 use Illuminate\Support\Facades\DB;
-use App\Http\Controllers\Controller;
 
 class Translation
 {
@@ -102,7 +100,7 @@ class Translation
         ->where('to_lang', '=', $this->to)
         ->where('translator', '=', $this->translator)->get();
 
-        if (count($existing) == 0){
+        if (count($existing) == 0) {
             return false;
         }
         if ($this->debug === true) {
@@ -110,32 +108,29 @@ class Translation
         } else {
             $this->translation = $existing[0]->translation;
         }
-        return true;
 
+        return true;
     }
 
     /**
-     * Function to save translations to DB
+     * Function to save translations to DB.
      */
     private function save()
     {
-
         $trans = new DB_Translation;
+        $trans = new DB_Translation();
         $trans->string = $this->string;
         $trans->from_lang = $this->from;
         $trans->to_lang = $this->to;
         $trans->translator = $this->translator;
         $trans->translation = $this->translation;
         $trans->save();
-
     }
-
-
 
     /**
      * Main function of the class.
      *
-     * Check what translator must select
+     * Check what translator must select.
      */
     private function run()
     {
