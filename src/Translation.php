@@ -121,8 +121,6 @@ class Translation
     {
 
         $trans = new DB_Translation;
-        $trans->save();
-        $trans->alias = $trans->getId();
         $trans->string = $this->string;
         $trans->from_lang = $this->from;
         $trans->to_lang = $this->to;

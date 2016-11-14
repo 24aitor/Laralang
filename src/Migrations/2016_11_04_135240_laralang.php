@@ -15,12 +15,11 @@ class Laralang extends Migration
     {
         Schema::create('laralang', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('translator')->default('Unknoun');
-            $table->string('alias')->unique()->default('Unknoun');
-            $table->string('string')->default('Unknoun');
-            $table->string('from_lang')->default('Unknoun');
-            $table->string('to_lang')->default('Unknoun');
-            $table->string('translation')->default('Unknoun');
+            $table->string('translator');
+            $table->string('string');
+            $table->string('from_lang');
+            $table->string('to_lang');
+            $table->string('translation');
             $table->timestamps();
         });
     }
