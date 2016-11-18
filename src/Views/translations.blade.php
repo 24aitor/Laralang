@@ -106,8 +106,8 @@
 		  <td>@{{ translation.to_lang }}</td>
 		  <td>@{{ translation.translation }}</td>
 		  <td>@{{ translation.updated_at }}</td>
-		  <td><center><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editTranslationModal" v-on:click="storeID(translation.id, translation.string, translation.from_lang, translation.to_lang, translation.translation)">Edit</button></center></td>
-		  <td><center><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteTranslationModal" v-on:click="storeID(translation.id, translation.string, translation.from_lang, translation.to_lang, translation.translation)">Delete</button></center></td>
+		  <td><center><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editTranslationModal" v-on:click="storeData(translation.id, translation.string, translation.from_lang, translation.to_lang, translation.translation)">Edit</button></center></td>
+		  <td><center><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteTranslationModal" v-on:click="storeData(translation.id, translation.string, translation.from_lang, translation.to_lang, translation.translation)">Delete</button></center></td>
 	  </tr>
 	  </tbody>
 	</table>
@@ -129,7 +129,7 @@ Vue.component('translations', {
 	},
 
 	methods: {
-		storeID: function (id, string, from, to, translation) {
+		storeData: function (id, string, from, to, translation) {
 			$('.trans-id').val(id);
 			$('.modal-title-edit').html('Editing tranlsation #'+id);
 			$('.modal-title-delete').html('Deleting tranlation #'+id);
