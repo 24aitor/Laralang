@@ -11,6 +11,6 @@ return [
         'debug'          => false,
         'from_lang'      => 'en',
         'to_lang'        => 'app_locale',
-        'prefix'        => 'laralang',
+        'prefix'         => 'laralang',
     ],
 ];
