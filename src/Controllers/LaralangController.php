@@ -2,12 +2,8 @@
 
 namespace Aitor24\Laralang\Controllers;
 
-use Illuminate\Http\Request;
-
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
-
 use Aitor24\Laralang\Models\DB_Translation;
+use App\Http\Controllers\Controller;
 
 class LaralangController extends Controller
 {
@@ -25,8 +21,8 @@ class LaralangController extends Controller
     {
         $trans = DB_Translation::findOrFail($id);
         $trans->delete();
-        return;
     }
+
     public function editTrans($id, $translation)
     {
         $trans = DB_Translation::findOrFail($id);

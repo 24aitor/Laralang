@@ -2,9 +2,8 @@
 
 namespace Aitor24\Laralang;
 
-use App;
-
 use Aitor24\Laralang\Models\DB_Translation;
+use App;
 use Illuminate\Support\Facades\DB;
 
 class Translation
@@ -117,7 +116,7 @@ class Translation
      */
     private function save()
     {
-        $trans = new DB_Translation;
+        $trans = new DB_Translation();
         $trans = new DB_Translation();
         $trans->string = $this->string;
         $trans->from_lang = $this->from;
