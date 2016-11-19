@@ -3,10 +3,18 @@
 <center>
 <br><br>
 <div class="container">
-	<h1>Laralang</h1>
-	<br><br>
-	<div class="container">
-		<translations style="background-color:white;"></translations>
+	<div class="row">
+		<div class="col-lg-6 offset-lg-3">
+			<h1>Laralang</h1>
+		</div>
+		<div class="col-lg-3">
+			<a class="btn btn-warning" href="{{ route('laralang::logout') }}" class='logout'>Logout</a>
+		</div>
+		<br><br>
+		<br><br>
+		<div class="container">
+			<translations style="background-color:white;"></translations>
+		</div>
 	</div>
 </div>
 <br><br>
