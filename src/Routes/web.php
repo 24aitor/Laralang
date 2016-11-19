@@ -9,7 +9,7 @@ Route::group(['middleware' => 'web', 'as' => 'laralang::', 'prefix' => config('l
         Route::get('/delete/{id}', 'LaralangController@deleteTrans')->name('delete');
         Route::get('/edit/{id}/{translation}', 'LaralangController@editTrans');
         Route::get('/logout', 'LaralangController@logout')->name('logout');
-        Route::group(['middleware' => 'api'], function () {
+        Route::group(['middleware' => ['throttle:5000,1', 'bindings']], function () {
             Route::get('/api', 'LaralangController@api')->name('api');
         });
     });
