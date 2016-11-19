@@ -18,9 +18,7 @@ class LaralangMiddleware
     public function handle($request, Closure $next)
     {
         if (!session('laralang.password') || (Crypt::decrypt(session('laralang.password')) != config('laralang.default.password'))) {
-            return redirect()
-                ->route('laralang::login')
-                ->with('msg', 'Your login has expired or does not exist.');
+            return redirect(Route('laralang::login'))->with('status', 'You should be logged into Laralang!');
         }
 
         return $next($request);

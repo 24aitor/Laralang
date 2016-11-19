@@ -13,5 +13,4 @@ Route::group(['middleware' => 'web', 'as' => 'laralang::', 'prefix' => config('l
             Route::get('/api', 'LaralangController@api')->name('api');
         });
     });
-    Route::get('/{slug}', 'LaralangController@redirect')->name('redirect');
 });
