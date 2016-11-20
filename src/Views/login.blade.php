@@ -1,4 +1,5 @@
 @extends('laralang::template')
+@section('title', 'Login - Laralang')
 @section('content')
 <br><br>
 <br><br><br>

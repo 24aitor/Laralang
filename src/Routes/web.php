@@ -9,8 +9,8 @@ Route::group(['middleware' => 'web', 'as' => 'laralang::', 'prefix' => config('l
             return redirect(Route('laralang::translations'));
         })->name('home');
         Route::get('/translations', 'LaralangController@showTranslations')->name('translations');
-        Route::get('/delete/{id}', 'LaralangController@deleteTrans')->name('delete');
-        Route::get('/edit/{id}/{translation}', 'LaralangController@editTrans');
+        Route::post('/delete', 'LaralangController@deleteTranslation')->name('delete');
+        Route::post('/edit', 'LaralangController@editTranslation');
         Route::get('/logout', 'LaralangController@logout')->name('logout');
         Route::group(['middleware' => ['throttle:5000,1', 'bindings']], function () {
             Route::get('/api', 'LaralangController@api')->name('api');

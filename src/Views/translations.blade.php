@@ -1,4 +1,9 @@
 @extends('laralang::template')
+@section('title', 'Translations - Laralang')
+@section('meta-sec')
+<meta name="csrf-token" content="{{ csrf_token() }}">
+@endsection
+
 @section('content')
 <center>
 <br><br>
@@ -99,8 +104,8 @@
 	    <tr>
 	      <th>#</th>
 	      <th>String</th>
-	      <th>From locale</th>
-		  <th>To locale</th>
+	      <th>From</th>
+		  <th>To</th>
 		  <th>Translation</th>
 		  <th>Last update</th>
 	      <th colspan="2"><center>Settings</center></th>
@@ -162,16 +167,61 @@ Vue.component('translations', {
 </script>
 <script>
 $( function() {
+	$.ajaxSetup({
+		headers: {
+			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		}
+	});
+
+	function notify_success(action, trans_id) {
+		$.notify({
+			icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Yes_Check_Circle.svg/20px-Yes_Check_Circle.svg.png",
+			message: "Translation #" + trans_id + ' ' + action +'!'
+		},{
+			icon_type: 'image', delay: 3000, type: 'success', placement: {from: "top", align: "left"}
+		});
+	}
+
+	function notify_error(action, trans_id) {
+	$.notify({
+		icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Human-dialog-error.svg/20px-Human-dialog-error.svg.png",
+		message: "Error succeed when trying to " + action + " translation #" + trans_id + ' !'
+	},{
+		icon_type: 'image', delay: 5000, type: 'danger', placement: {from: "top", align: "left"}
+	});
+	}
+
 	$('#delete').click(function() {
+		var trans_id = $('.trans-id').val();
 		<?php $url_route = url('/').'/'.config('laralang.default.prefix').'/delete';
 		?>
-		$.get("{{ $url_route }}"+'/'+$('.trans-id').val());
+		$.ajax({
+			type: "POST",
+			url: "{{ $url_route }}",
+			data: {id : trans_id},
+			success: function() {
+				notify_success('deleted', trans_id);
+			},
+			error: function(){
+				notify_error('delete', trans_id);
+			},
+		});
 	});
 	$('#edit').click(function() {
-		var translation = $('.input-trans').val();
+		var trans_id = $('.trans-id').val();
 		<?php $url_route = url('/').'/'.config('laralang.default.prefix').'/edit';
 		?>
-		$.get("{{ $url_route }}"+'/'+$('.trans-id').val()+'/'+translation);
+		$.ajax({
+			type: "POST",
+			url: "{{ $url_route }}",
+			data: {id : trans_id, from : $('.input-from').val(), to : $('.input-to').val(), string : $('.input-string').val(), translation : $('.input-trans').val()},
+			success: function() {
+				notify_success('edited', trans_id);
+			},
+			error: function(){
+				notify_error('edit', trans_id);
+			},
+		});
 	});
 
 });

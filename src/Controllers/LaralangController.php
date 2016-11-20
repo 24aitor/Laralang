@@ -5,7 +5,9 @@ namespace Aitor24\Laralang\Controllers;
 use Aitor24\Laralang\Models\DB_Translation;
 use App\Http\Controllers\Controller;
 use Crypt;
+use Response;
 use Illuminate\Http\Request;
+
 
 class LaralangController extends Controller
 {
@@ -46,17 +48,19 @@ class LaralangController extends Controller
         return DB_Translation::all();
     }
 
-    public function deleteTrans($id)
+    public function deleteTranslation(Request $request)
     {
-        $trans = DB_Translation::findOrFail($id);
+        $trans = DB_Translation::findOrFail($request->id);
         $trans->delete();
     }
 
-    public function editTrans($id, $translation)
+    public function editTranslation(Request $request)
     {
-        $trans = DB_Translation::findOrFail($id);
-        $trans->translation = $translation;
+        $trans = DB_Translation::findOrFail($request->id);
+        $trans->string = $request->string;
+        $trans->to_lang = $request->to;
+        $trans->from_lang = $request->from;
+        $trans->translation = $request->translation;
         $trans->touch();
-        $trans->save();
     }
 }
