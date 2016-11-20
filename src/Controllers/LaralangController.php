@@ -5,9 +5,7 @@ namespace Aitor24\Laralang\Controllers;
 use Aitor24\Laralang\Models\DB_Translation;
 use App\Http\Controllers\Controller;
 use Crypt;
-use Response;
 use Illuminate\Http\Request;
-
 
 class LaralangController extends Controller
 {
