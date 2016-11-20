@@ -201,7 +201,7 @@ class Translation
 
              $transObtained = $data->responseData->translatedText;
 
-             $this->translation = utf8_decode(ucfirst(strtolower(trim($transObtained))));
+             $this->translation = ucfirst(strtolower(trim($transObtained)));
 
              $this->save();
 
