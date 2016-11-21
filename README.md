@@ -1,12 +1,16 @@
-# Laralang's documentation
+# Laralang
 
 [![StyleCI](https://styleci.io/repos/69460815/shield?branch=master)](https://styleci.io/repos/69460815)
 [![Scrutinizer](https://img.shields.io/scrutinizer/g/24aitor/laralang.svg?style=flat-square)](https://scrutinizer-ci.com/g/24aitor/laralang/?branch=master)
 [![GitHub license](https://img.shields.io/github/license/24aitor/laralang.svg?style=flat-square)](https://raw.githubusercontent.com/24aitor/laralang/master/LICENSE)
 
+\begin{center}
+	![](http://i.imgur.com/kcb4uhE.png){widht=400px}
+\end{center}
+
 ## Getting Started
 
-### Step 1. Require it with composer
+### Step 1. Install it with composer
 
 You should run next command:
 

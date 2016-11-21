@@ -126,7 +126,8 @@
 	</table>
 </template>
 @endsection
-
+<!--
+		<i class="mdi mdi-account" aria-hidden="true"></i>  -->
 @section('js')
 <script type="text/javascript">
 Vue.component('translations', {
@@ -175,20 +176,20 @@ $( function() {
 
 	function notify_success(action, trans_id) {
 		$.notify({
-			icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Yes_Check_Circle.svg/20px-Yes_Check_Circle.svg.png",
+			icon: 'mdi mdi-check-circle',
 			message: "Translation #" + trans_id + ' ' + action +'!'
 		},{
-			icon_type: 'image', delay: 3000, type: 'success', placement: {from: "top", align: "left"}
+			delay: 3000, type: 'success', placement: {from: "top", align: "left"},animate: {enter: 'animated fadeInLeft', exit: 'animated fadeOutLeft'}
 		});
 	}
 
 	function notify_error(action, trans_id) {
-	$.notify({
-		icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Human-dialog-error.svg/20px-Human-dialog-error.svg.png",
-		message: "Error succeed when trying to " + action + " translation #" + trans_id + ' !'
-	},{
-		icon_type: 'image', delay: 5000, type: 'danger', placement: {from: "top", align: "left"}
-	});
+		$.notify({
+			icon: "mdi mdi-close-circle",
+			message: "Error succeed when trying to " + action + " translation #" + trans_id + ' !'
+		},{
+			delay: 5000, type: 'danger', placement: {from: "top", align: "left"}, animate: {enter: 'animated fadeInLeft', exit: 'animated fadeOutLeft'}
+		});
 	}
 
 	$('#delete').click(function() {

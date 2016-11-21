@@ -61,7 +61,7 @@ class Translation
      *
      * @param string $lang
      */
-    public function setFromLang($lang)
+    public function setFrom($lang)
     {
         $this->from = $lang;
 
@@ -73,7 +73,7 @@ class Translation
      *
      * @param string $lang
      */
-    public function setToLang($lang)
+    public function setTo($lang)
     {
         $this->to = $lang;
 

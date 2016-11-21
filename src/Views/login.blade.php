@@ -1,15 +1,18 @@
 @extends('laralang::template')
 @section('title', 'Login - Laralang')
 @section('content')
-<br><br>
 <br><br><br>
-<br><br><br>
+<br>
+<center>
+<img src="{{asset('vendor/Aitor24/Laralang/Images/icon.png')}}" alt="Laralang logo" width="150">
+<br>
+<br><br><br><br>
+
 <div class="container">
         <div class="row">
         <div class="col-xs-12 col-lg-8 offset-lg-2">
         <div class="card card-block">
               <br>
-              <center>
                   <h4 class="card-title">Laralang login</h4>
               <br>
               <form method="POST">
@@ -21,16 +24,14 @@
                     </div>
                   </div>
                   <br>
-                    <button type="submit" class="btn btn-primary">Login</button>
+                    <button type="submit" class="btn btn-primary">Login <i class="mdi mdi-login"></i></button>
                   <br>
               </form>
-              </center>
         </div>
         </div>
         </div>
     </div>
-<br><br><br><br>
-<br><br><br><br>
 <br><br><br>
-
+<br><br><br>
+</center>
 @endsection

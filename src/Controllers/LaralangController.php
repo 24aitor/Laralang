@@ -33,7 +33,7 @@ class LaralangController extends Controller
     {
         $request->session()->forget('laralang.password');
 
-        return redirect(Route('laralang::translations'));
+        return redirect(Route('laralang::login'));
     }
 
     public function showTranslations()
@@ -60,5 +60,6 @@ class LaralangController extends Controller
         $trans->from_lang = $request->from;
         $trans->translation = $request->translation;
         $trans->touch();
+        $trans->save();
     }
 }

@@ -18,8 +18,9 @@ class LaralangServiceProvider extends ServiceProvider
         }
 
         $this->publishes([
-            __DIR__.'/../config/laralang.php' => config_path('laralang.php'),
-        ], 'laralang_config');
+            __DIR__.'/Config/laralang.php' => config_path('laralang.php'),
+            __DIR__.'/Assets' => public_path('vendor/Aitor24/Laralang'),
+        ], 'laralang_pkg');
 
         $router->middleware('laralang.middleware', config('laralang.default.middleware'));
 

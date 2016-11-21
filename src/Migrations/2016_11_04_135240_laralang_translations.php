@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Laralang extends Migration
+class LaralangTranslations extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class Laralang extends Migration
      */
     public function up()
     {
-        Schema::create('laralang', function (Blueprint $table) {
+        Schema::create('laralang_translations', function (Blueprint $table) {
             $table->increments('id');
             $table->string('translator');
             $table->string('string');
@@ -31,6 +31,6 @@ class Laralang extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('laralang');
+        Schema::dropIfExists('laralang_translations');
     }
 }
