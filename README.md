@@ -1,5 +1,7 @@
 # Laralang
 
+This package let you translate strings from any language to another in laravel 5.X
+
 [![StyleCI](https://styleci.io/repos/69460815/shield?branch=master)](https://styleci.io/repos/69460815)
 [![Scrutinizer](https://img.shields.io/scrutinizer/g/24aitor/laralang.svg?style=flat-square)](https://scrutinizer-ci.com/g/24aitor/laralang/?branch=master)
 [![GitHub license](https://img.shields.io/github/license/24aitor/laralang.svg?style=flat-square)](https://raw.githubusercontent.com/24aitor/laralang/master/LICENSE)
@@ -10,62 +12,66 @@
 
 ### Step 1. Install it with composer
 
-You should run next command:
+Running the command below:
 
 ```
 composer require aitor24/laralang
 ```
 
-### Step 2. Register service provider
+### Step 2. Register service provider & aliases
 
-Add the next line to config/app.php inside `'providers' => [` :
+Include the line below to config/app.php inside array `'providers' => [` :
 
 ```
 Aitor24\Laralang\LaralangServiceProvider::class,
 ```
 
-### Step 3. Add Laralang Alias
 
-Add the next line to config/app.php inside `'aliases' => [` :
+Include the line below to config/app.php inside array `'aliases' => [` :
 
 ```
 'Laralang'   => Aitor24\Laralang\Facades\Laralang::class,
 ```
 
-### Step 4. Publish config file
 
-You should run next command:
+### Step 3. Publish vendor
 
-```
-php artisan vendor:publish --tag=laralang_config
-```
+It will publish assets and config file.
 
-## Examples
-
-### Traslations
-
-You shold call it like:
-
-```html
-
-{!! Laralang::trans('Hello world') !!}
+Running the command below:
 
 ```
+php artisan vendor:publish
+```
 
-*Currently there are two available translators: apertium, mymemory. But we strongly recommend to use mymemory.*
+### Step 4. Migrate
+
+
+Running the command below:
+
+```
+php artisan migrate
+```
+
+
+### Step 5. Configure defalt values
+
+**STRONGLY IMPORTANT:** Change the password of config *(Default password: laralangAdmin )*
+
+Apart from the password, the rest of default values can be modified also on `config/laralang.php`. Furthermore you can modify it in a specific translation with the functions below.
 
 #### Functions
 
 Moreover you can use different functions in each translation.
 
-**setFromLang()**
+**setFrom()**
 
 
 It sets the language of the string to translate in a specific translation.
 
 *Default: en*
 
-**SetToLang()**
+**SetTo()**
 
 It sets the language that you'll output in a specific translation.
 
@@ -77,6 +83,8 @@ This option let you to change the default translator in a specific translation.
 
 *Default: mymemory*
 
+*Currently there are two available translators: apertium, mymemory. But we strongly recommend to use mymemory.*
+
 **setDebug()**
 
 Debug option let you to know the reason of an unexpected result with colorful messages in a specific translation.
@@ -85,49 +93,65 @@ Debug option let you to know the reason of an unexpected result with colorful me
 
 ***************
 
-Default values can be modified on `config/laralang.php`. Furthermore you can modify it in a specific translation with the functions above.
+### Examples of use
+
 
 Then few examples of tranlsation:
 
 
 
-```html
+```php
 {!! Laralang::trans('Hello world!') !!}
-
 <br>
-
 {!! Laralang::trans('Hello world!')->setDebug(true) !!}
-
 <br>
-
-{!! Laralang::trans('Hello world!')->setDebug(true)->setToLang('de') !!}
-
+{!! Laralang::trans('Hello world!')->setTo('es') !!}
 <br>
-
-{!! Laralang::trans('Hallo welt!')->setFromLang('de')->setToLang('fr') !!}
-
+{!! Laralang::trans('Hello world!')->setTo('ca') !!}
 <br>
-
-{!! Laralang::trans('Hallo welt!')->setDebug(true)->setFromLang('de')->setToLang('fr')->setTranslator('apertium') !!}
-<!-- it fails because apertium doesn't support this lang pair -->
+{!! Laralang::trans('Hello world!')->setTo('ca')->setDebug(true) !!}
+<br>
+{!! Laralang::trans('Hallo welt!')->setFrom('de')->setTo('fr') !!}
+<br>
+{!! Laralang::trans('Hello world!')->setTo('pt') !!}
+<br>
+{!! Laralang::trans('Hello world!')->setTo('de') !!}
+<br>
+{!! Laralang::trans('Hello world!')->setTo('ml') !!}
+<br>
+{!! Laralang::trans('Hello world!')->setTo('zh') !!}
 ```
 
 Then the result:
 
-![Result of example](http://i.imgur.com/KpF2Lj3.png)
+![Result of example](http://i.imgur.com/LKOjZdB.png)
 
-### 'base' translations
+### Admin panel
 
-```html
+Furthermore now you can control which translations are saved on your DB and then you can manage it *(edit and delete)*.
 
-@lang('laralang::base.welcome')
+#### First you should be logged into loaralang.
 
-{{trans('laralang::base.welcome')}}
+*Route prefix can be changed on your config file, but by default it's laralang*
 
-{{trans('laralang::base.welcome_to', ['app_name' => 'Your app name'])}}
+- How to acces to panel?
 
-{{trans_choice('laralang::base.users_mp', 1)}}
+You should visit next url:
 
-{{trans_choice('laralang::base.users_mp', 5)}}
+http://host.domain/laralang/login
 
-```
+or in localhost you should visit
+
+http://localhost/project-path/public/laralang/login
+
+Then you should see the laralang login page (photo below)
+
+![Laralang login page](http://i.imgur.com/3DgOs3C.png)
+ 
+Now you must enter the password you set on [Step 5. Configure defalt values] and then click login to manage your translations!
+
+![View of translations](http://i.imgur.com/8eUzetl.png)
+
+![Editing translation #3](http://i.imgur.com/f3pcwab.png)
+
+
