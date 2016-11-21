@@ -1,7 +1,5 @@
 # Laralang
 
-This package let you translate strings from any language to another in laravel 5.X
-
 [![StyleCI](https://styleci.io/repos/69460815/shield?branch=master)](https://styleci.io/repos/69460815)
 [![Scrutinizer](https://img.shields.io/scrutinizer/g/24aitor/laralang.svg?style=flat-square)](https://scrutinizer-ci.com/g/24aitor/laralang/?branch=master)
 [![GitHub license](https://img.shields.io/github/license/24aitor/laralang.svg?style=flat-square)](https://raw.githubusercontent.com/24aitor/laralang/master/LICENSE)
@@ -60,7 +58,9 @@ php artisan migrate
 
 Apart from the password, the rest of default values can be modified also on `config/laralang.php`. Furthermore you can modify it in a specific translation with the functions below.
 
-#### Functions
+## Using laralang
+
+### Functions
 
 Moreover you can use different functions in each translation.
 
@@ -148,7 +148,7 @@ Then you should see the laralang login page (photo below)
 
 ![Laralang login page](http://i.imgur.com/3DgOs3C.png)
  
-Now you must enter the password you set on [Step 5. Configure defalt values] and then click login to manage your translations!
+Now you must enter the password you set on [Step 5](https://github.com/24aitor/laralang#step-5-configure-defalt-values) and then click login to manage your translations!
 
 ![View of translations](http://i.imgur.com/8eUzetl.png)
 
