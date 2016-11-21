@@ -103,7 +103,7 @@ class Translation
             return false;
         }
         if ($this->debug === true) {
-            $this->translation = "<font style='color:#00CC00;'>Loaded correclty from you DB</font>";
+            $this->translation = "<font style='color:#00CC00;'>Translation loaded from DB</font>";
         } else {
             $this->translation = $existing[0]->translation;
         }
@@ -116,7 +116,6 @@ class Translation
      */
     private function save()
     {
-        $trans = new DB_Translation();
         $trans = new DB_Translation();
         $trans->string = $this->string;
         $trans->from_lang = $this->from;
@@ -208,7 +207,7 @@ class Translation
              // Checking debug setting to determinate how to output translation
 
              if ($this->debug === true) {
-                 $this->translation = "<font style='color:#00CC00;'>".$this->translation.'</font>';
+                 $this->translation = "<font style='color:#00CC00;'> Translation saved on DB </font>";
              }
 
 

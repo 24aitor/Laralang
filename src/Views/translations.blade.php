@@ -64,7 +64,7 @@
 			<div class="modal-footer">
 				<center>
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-					<button type="button" class="btn btn-danger" data-dismiss="modal" id="edit">Submit</button>
+					<button type="button" class="btn btn-primary" data-dismiss="modal" id="edit">Submit</button>
 				</center>
 			</div>
 		</div>
