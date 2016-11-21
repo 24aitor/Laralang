@@ -62,8 +62,6 @@ Apart from the password, the rest of default values can be modified also on `con
 
 ### Functions
 
-Moreover you can use different functions in each translation.
-
 **setFrom()**
 
 
