@@ -4,9 +4,7 @@
 [![Scrutinizer](https://img.shields.io/scrutinizer/g/24aitor/laralang.svg?style=flat-square)](https://scrutinizer-ci.com/g/24aitor/laralang/?branch=master)
 [![GitHub license](https://img.shields.io/github/license/24aitor/laralang.svg?style=flat-square)](https://raw.githubusercontent.com/24aitor/laralang/master/LICENSE)
 
-\begin{center}
-	![](http://i.imgur.com/kcb4uhE.png){widht=400px}
-\end{center}
+![](http://i.imgur.com/11Tvcoh.png)
 
 ## Getting Started
 
