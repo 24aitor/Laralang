@@ -2,8 +2,8 @@
 
 namespace Aitor24\Laralang\Facades;
 
-use Illuminate\Support\Facades\Facade;
 use Aitor24\Laralang\Builder;
+use Illuminate\Support\Facades\Facade;
 
 class Laralang extends Facade
 {

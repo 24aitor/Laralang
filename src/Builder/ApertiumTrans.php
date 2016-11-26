@@ -61,5 +61,4 @@ class ApertiumTrans extends Translation
             return;
         }
     }
-
 }
