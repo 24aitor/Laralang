@@ -11,12 +11,13 @@ class Translation
     /**
      * Setup public vars.
      */
-    public $translator;
     public $translation;
+    public $translator;
     public $string;
     public $debug;
     public $from;
     public $to;
+    public $save;
 
     /**
      * Setup default values.
@@ -27,6 +28,7 @@ class Translation
     {
         $this->translator = config('laralang.default.translator');
         $this->debug = config('laralang.default.debug');
+        $this->save = config('laralang.default.autosave');
         $this->from = config('laralang.default.from_lang');
         $this->to = config('laralang.default.to_lang');
         $this->string = $string;
@@ -92,6 +94,19 @@ class Translation
         return $this;
     }
 
+    /**
+     * Setup save option.
+     *
+     * @param bool $save
+     */
+    public function Save($save)
+    {
+        $this->save = $save;
+
+        return $this;
+    }
+
+
     private function exists()
     {
         $existing = DB_Translation::where('string', '=', $this->string)
@@ -114,15 +129,38 @@ class Translation
     /**
      * Function to save translations to DB.
      */
-    private function save()
+    private function checkSave()
     {
-        $trans = new DB_Translation();
-        $trans->string = $this->string;
-        $trans->from_lang = $this->from;
-        $trans->to_lang = $this->to;
-        $trans->translator = $this->translator;
-        $trans->translation = $this->translation;
-        $trans->save();
+        if ($this->save === true){
+            $trans = new DB_Translation();
+            $trans->string = $this->string;
+            $trans->from_lang = $this->from;
+            $trans->to_lang = $this->to;
+            $trans->translator = $this->translator;
+            $trans->translation = $this->translation;
+            $trans->save();
+
+            // Checking debug setting to determinate how to output translation
+
+            if ($this->debug === true) {
+                $this->translation = "<font style='color:#00CC00;'> Translation saved on DB </font>";
+            }
+        } else {
+            if ($this->debug === true) {
+                $this->translation = "<font style='color:orange;'> Translation not saved on DB </font>";
+            }
+        }
+    }
+
+    /*
+    * This fuction is called when host is down, and it would set translation if debug is true
+    *
+    */
+    private function hostDown()
+    {
+        if ($this->debug === true) {
+            $this->translation = "<font style='color:red;'>$this->translator host is down</font>";
+        }
     }
 
     /**
@@ -152,7 +190,7 @@ class Translation
 
         // Checks available translators.
 
-        if (in_array($this->translator, $available_transoltors) == false) {
+        if (! in_array($this->translator, $available_transoltors)) {
             if ($this->debug === true) {
                 $this->translation = "<font style='color:red;'>Not suported translator: ".$this->translator.'</font>';
             }
@@ -202,17 +240,11 @@ class Translation
 
              $this->translation = ucfirst(strtolower(trim($transObtained)));
 
-             $this->save();
+             $this->checkSave();
 
-             // Checking debug setting to determinate how to output translation
-
-             if ($this->debug === true) {
-                 $this->translation = "<font style='color:#00CC00;'> Translation saved on DB </font>";
-             }
-
-
-             return;
              fclose($socket);
+             return;
+
          } else {
 
              //host offline
@@ -273,23 +305,14 @@ class Translation
                 }
             }
 
+            $this->checkSave();
+
             fclose($socket);
 
             return;
         } else {
             //host offline
             $this->hostDown();
-        }
-    }
-
-    /*
-     * This fuction is called when host is down, and it would set translation if debug is true
-     *
-     */
-    private function hostDown()
-    {
-        if ($this->debug === true) {
-            $this->translation = "<font style='color:red;'>$this->translator host is down</font>";
         }
     }
 

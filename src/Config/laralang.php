@@ -14,5 +14,6 @@ return [
         'prefix'         => 'laralang',
         'middleware'     => Aitor24\Laralang\Middleware\LaralangMiddleware::class,
         'password'       => 'laralangAdmin',
+        'autosave'       => true,
     ],
 ];

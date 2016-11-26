@@ -145,11 +145,9 @@ http://localhost/project-path/public/laralang/login
 Then you should see the laralang login page (photo below)
 
 ![Laralang login page](http://i.imgur.com/3DgOs3C.png)
- 
-Now you must enter the password you set on [Step 5](https://github.com/24aitor/laralang#step-5-configure-defalt-values) and then click login to manage your translations!
+
+Now you must enter the password you set on [Step 5](Step 5) and then click login to manage your translations!
 
 ![View of translations](http://i.imgur.com/8eUzetl.png)
 
 ![Editing translation #3](http://i.imgur.com/f3pcwab.png)
-
-
