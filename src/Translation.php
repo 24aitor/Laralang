@@ -106,7 +106,6 @@ class Translation
         return $this;
     }
 
-
     private function exists()
     {
         $existing = DB_Translation::where('string', '=', $this->string)
