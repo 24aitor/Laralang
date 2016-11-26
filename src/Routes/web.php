@@ -1,4 +1,5 @@
 <?php
+
 if (config('laralang.default.routes')) {
     Route::group(['middleware' => 'web', 'as' => 'laralang::', 'prefix' => config('laralang.default.prefix'), 'namespace' => 'Aitor24\Laralang\Controllers'], function () {
         Route::get('/login', 'LaralangController@showLogin')->name('login');
