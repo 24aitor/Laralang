@@ -7,13 +7,14 @@ return [
     |--------------------------------------------------------------------------
     */
     'default'   => [
-        'translator'     => 'mymemory',
+        'autosave'       => true,
         'debug'          => false,
+        'routes'         => true,
+        'prefix'         => 'laralang',
+        'password'       => 'laralangAdmin',
+        'translator'     => 'mymemory',
         'from_lang'      => 'en',
         'to_lang'        => 'app_locale',
-        'prefix'         => 'laralang',
         'middleware'     => Aitor24\Laralang\Middleware\LaralangMiddleware::class,
-        'password'       => 'laralangAdmin',
-        'autosave'       => true,
     ],
 ];
