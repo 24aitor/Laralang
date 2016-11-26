@@ -192,7 +192,7 @@ class Translation
 
         if (!in_array($this->translator, $available_transoltors)) {
             if ($this->debug === true) {
-                $this->translation = "<font style='color:red;'>Not suported translator: ".$this->translator."</font>";
+                $this->translation = "<font style='color:red;'>Not suported translator: ".$this->translator.'</font>';
             }
 
             return;
