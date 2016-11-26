@@ -9,9 +9,9 @@ class ApertiumTrans extends Translation
      */
     public function main()
     {
-        // Check if it can be translated from online sources.
-
         $host = 'api.apertium.org';
+
+        // Check if host is online.
         if ($this->checkHost($host)) {
             // Host online
 

@@ -6,11 +6,10 @@ class Exception extends Translation
 {
 
      /**
-      * Get translation from mymemory API.
+      * This function doesn't do nothing
       */
      public function main()
      {
-         // Check if it can be translated from online sources.
 
          return;
      }
