@@ -151,10 +151,10 @@ class Translation
     }
 
     /**
-    * This fuction is called to know the status of host, and it would set translation if debug is true.
-    *
-    * @param string $host
-    */
+     * This fuction is called to know the status of host, and it would set translation if debug is true.
+     *
+     * @param string $host
+     */
     public function checkHost($host)
     {
         $socket = @fsockopen($host, 80, $errno, $errstr, 30);
@@ -167,18 +167,15 @@ class Translation
                 $this->translation = "<font style='color:red;'>$this->translator host is down! </font>";
             }
         }
-
     }
-
 
     /**
      * This fuction is called by trans() function of Fadade Laralang
-     * It would call run() function of this class and returns the translation
-     *
+     * It would call run() function of this class and returns the translation.
      */
     public function __toString()
     {
-        if (!$this->loadIfExists()){
+        if (!$this->loadIfExists()) {
             $this->main();
         }
 

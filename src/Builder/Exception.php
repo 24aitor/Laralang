@@ -6,12 +6,11 @@ class Exception extends Translation
 {
 
      /**
-      * This function doesn't do nothing
+      * This function do nothing, but it's neccesary to create an exception object
       */
      public function main()
      {
 
          return;
      }
-
 }
