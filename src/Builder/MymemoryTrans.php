@@ -4,8 +4,7 @@ namespace Aitor24\Laralang\Builder;
 
 class MymemoryTrans extends Translation
 {
-
-     /**
+    /**
       * Get translation from mymemory API.
       */
      public function main()
@@ -44,5 +43,4 @@ class MymemoryTrans extends Translation
              return;
          }
      }
-
 }
