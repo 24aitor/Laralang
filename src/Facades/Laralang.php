@@ -8,11 +8,7 @@ use Illuminate\Support\Facades\Facade;
 class Laralang extends Facade
 {
     /**
-     * Get the trnaslation.
-     *
-     * @param string $string
-     *
-     * @return string method of object
+     * Get the registered name of the component.
      */
     public static function getFacadeAccessor()
     {

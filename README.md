@@ -146,7 +146,7 @@ Then you should see the laralang login page (photo below)
 
 ![Laralang login page](http://i.imgur.com/3DgOs3C.png)
 
-Now you must enter the password you set on [Step 5](Step 5) and then click login to manage your translations!
+Now you must enter the password you set on [Step 5](#step-5) and then click login to manage your translations!
 
 ![View of translations](http://i.imgur.com/8eUzetl.png)
 

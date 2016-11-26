@@ -8,6 +8,13 @@ use Aitor24\Laralang\Builder\MymemoryTrans;
 
 class Builder
 {
+    /**
+     * Get the trnaslation.
+     *
+     * @param string $string
+     *
+     * @return object
+     */
     public static function trans($string)
     {
         $translator = config('laralang.default.translator');
