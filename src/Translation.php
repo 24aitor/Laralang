@@ -131,7 +131,7 @@ class Translation
      */
     private function checkSave()
     {
-        if ($this->save === true){
+        if ($this->save === true) {
             $trans = new DB_Translation();
             $trans->string = $this->string;
             $trans->from_lang = $this->from;
@@ -190,9 +190,9 @@ class Translation
 
         // Checks available translators.
 
-        if (! in_array($this->translator, $available_transoltors)) {
+        if (!in_array($this->translator, $available_transoltors)) {
             if ($this->debug === true) {
-                $this->translation = "<font style='color:red;'>Not suported translator: ".$this->translator.'</font>';
+                $this->translation = "<font style='color:red;'>Not suported translator: ".$this->translator."</font>";
             }
 
             return;
@@ -243,8 +243,8 @@ class Translation
              $this->checkSave();
 
              fclose($socket);
-             return;
 
+             return;
          } else {
 
              //host offline
