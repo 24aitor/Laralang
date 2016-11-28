@@ -3,7 +3,6 @@
 namespace Aitor24\Laralang;
 
 use Aitor24\Laralang\Builder\ApertiumTrans;
-use Aitor24\Laralang\Builder\Exception;
 use Aitor24\Laralang\Builder\MymemoryTrans;
 use Aitor24\Laralang\Models\DB_Translation;
 
@@ -42,6 +41,7 @@ class Builder
         foreach ($translations as $object) {
             array_push($locales, $object->to_lang);
         }
+
         return $locales;
     }
 
