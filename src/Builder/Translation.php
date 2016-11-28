@@ -118,7 +118,7 @@ class Translation
         if ($this->debug === true) {
             $this->translation = "<font style='color:#00CC00;'>Translation loaded from DB</font>";
         } else {
-            $this->translation = $existing[0]->translation;
+            $this->translation = utf8_decode($existing[0]->translation);
         }
 
         return true;
@@ -135,7 +135,7 @@ class Translation
             $trans->from_lang = $this->from;
             $trans->to_lang = $this->to;
             $trans->translator = $this->translator;
-            $trans->translation = $this->translation;
+            $trans->translation = utf8_encode($this->translation);
             $trans->save();
 
             // Checking debug setting to determinate how to output translation
