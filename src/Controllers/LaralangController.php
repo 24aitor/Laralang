@@ -58,7 +58,7 @@ class LaralangController extends Controller
         $trans->string = $request->string;
         $trans->to_lang = $request->to;
         $trans->from_lang = $request->from;
-        $trans->translation = $request->translation;
+        $trans->translation = utf8_encode($request->translation);
         $trans->touch();
         $trans->save();
     }

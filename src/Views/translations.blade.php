@@ -117,7 +117,7 @@
 	      <td>@{{ translation.string }}</td>
 	      <td>@{{ translation.from_lang }}</td>
 		  <td>@{{ translation.to_lang }}</td>
-		  <td>@{{ translation.translation }}</td>
+	      <td>@{{ decode_utf8(translation.translation) }}</td>
 		  <td>@{{ translation.updated_at }}</td>
 		  <td><center><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editTranslationModal" v-on:click="storeData(translation.id, translation.string, translation.from_lang, translation.to_lang, translation.translation)">Edit</button></center></td>
 		  <td><center><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteTranslationModal" v-on:click="storeData(translation.id, translation.string, translation.from_lang, translation.to_lang, translation.translation)">Delete</button></center></td>
@@ -150,9 +150,14 @@ Vue.component('translations', {
 			$('.input-from').val(from);
 			$('.input-to').val(to);
 			$('.input-string').html(string);
-			$('.input-trans').html(translation);
+			$('.input-trans').html(this.decode_utf8(translation));
 			$('.confirmation-message').html('Are you sure you want to delete translation #' + id + ' ?');
 		},
+
+
+		decode_utf8: function (s) {
+		  return decodeURIComponent(escape(s));
+	  	},
 
 		getTranslations: function () {
 			$.getJSON("{{ route('laralang::api')}}", function(translations) {
@@ -181,6 +186,10 @@ $( function() {
 		},{
 			delay: 3000, type: 'success', placement: {from: "top", align: "left"},animate: {enter: 'animated fadeInLeft', exit: 'animated fadeOutLeft'}
 		});
+	}
+
+	function encode_utf8(s) {
+		return unescape(encodeURIComponent(s));
 	}
 
 	function notify_error(action, trans_id) {
