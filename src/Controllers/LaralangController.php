@@ -55,7 +55,7 @@ class LaralangController extends Controller
             $toc['translation'] = $coded;
             array_push($cod, $toc);
         }
-        
+
         return Response::json($cod);
     }
 
