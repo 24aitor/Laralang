@@ -52,7 +52,7 @@ php artisan migrate
 
 **STRONGLY IMPORTANT:** Change the password of config *(Default password: laralangAdmin )*
 
-Apart from the password, the rest of default values can be modified also on `config/laralang.php`. Furthermore you can modify it in a specific translation with the functions below.
+Apart from the password, the rest of default values can be modified also on `config/laralang.php`. Furthermore you can modify these in a specific translation with the functions below.
 
 ## Using laralang
 
@@ -115,6 +115,8 @@ Then few examples of tranlsation:
 <br>
 {!! Laralang::trans('Hello world!')->setTo('zh') !!}
 ```
+
+**NOTE: Use {{ }} statements if translations comes from users to prevent XSS atacks**
 
 Then the result:
 
