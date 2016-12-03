@@ -2,6 +2,7 @@
 
 namespace Aitor24\Laralang;
 
+use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 
 class LaralangServiceProvider extends ServiceProvider
@@ -37,6 +38,7 @@ class LaralangServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        // Loading alias from config
+        AliasLoader::getInstance()->alias(config('laralang.default.alias'), 'Aitor24\Laralang\Facades\Laralang');
     }
 }
