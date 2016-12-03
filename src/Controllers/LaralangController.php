@@ -44,7 +44,7 @@ class LaralangController extends Controller
 
     public function api()
     {
-        $cod =[];
+        $cod = [];
         $to_cod = DB_Translation::all();
         foreach ($to_cod as $toc) {
             if (mb_check_encoding(utf8_decode($toc['translation']), 'UTF-8')) {
@@ -55,6 +55,7 @@ class LaralangController extends Controller
             $toc['translation'] = $coded;
             array_push($cod, $toc);
         }
+        
         return Response::json($cod);
     }
 
