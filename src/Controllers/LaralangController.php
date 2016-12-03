@@ -6,6 +6,7 @@ use Aitor24\Laralang\Models\DB_Translation;
 use App\Http\Controllers\Controller;
 use Crypt;
 use Illuminate\Http\Request;
+use Response;
 
 class LaralangController extends Controller
 {
@@ -43,7 +44,18 @@ class LaralangController extends Controller
 
     public function api()
     {
-        return DB_Translation::all();
+        $cod =[];
+        $to_cod = DB_Translation::all();
+        foreach ($to_cod as $toc) {
+            if (mb_check_encoding(utf8_decode($toc['translation']), 'UTF-8')) {
+                $coded = utf8_decode($toc['translation']);
+            } else {
+                $coded = 'Error decoding, unkown chars';
+            }
+            $toc['translation'] = $coded;
+            array_push($cod, $toc);
+        }
+        return Response::json($cod);
     }
 
     public function deleteTranslation(Request $request)
