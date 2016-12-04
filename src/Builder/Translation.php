@@ -33,7 +33,6 @@ class Translation
         $this->string = $string;
         $this->translation = $string;
 
-
         // Checking whether from_lang or to_lang are set as app_locale.
 
         if ($this->from == 'app_locale') {

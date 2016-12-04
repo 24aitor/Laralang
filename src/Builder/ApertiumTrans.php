@@ -32,9 +32,7 @@ class ApertiumTrans extends Translation
 
             $transObtained = $data->responseData->translatedText;
 
-
             $this->translation = ucfirst(strtolower(trim(str_replace('*', ' ', $transObtained))));
-
 
             // Checking debug setting to determinate how to output translation
 
