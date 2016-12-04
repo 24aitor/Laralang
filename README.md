@@ -24,8 +24,11 @@ Include the line below to config/app.php inside array `'providers' => [` :
 Aitor24\Laralang\LaralangServiceProvider::class,
 ```
 
+Include the line below to config/app.php inside array `'aliases' => [` :
 
-*Now alias is registred automatically. On config, you can set the alias*
+```
+'Laralang'   => Aitor24\Laralang\Facades\Laralang::class,
+```
 
 
 ### Step 3. Publish vendor
