@@ -33,7 +33,6 @@ class MymemoryTrans extends Translation
                  return;
              }
 
-
              $transObtained = $data->responseData->translatedText;
 
              $this->translation = ucfirst(strtolower(trim($transObtained)));
