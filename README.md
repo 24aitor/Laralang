@@ -61,20 +61,20 @@ Apart from the password, the rest of default values can be modified also on `con
 
 ### Functions
 
-**setFrom()**
+**from()**
 
 
 It sets the language of the string to translate in a specific translation.
 
 *Default: en*
 
-**SetTo()**
+**to()**
 
 It sets the language that you'll output in a specific translation.
 
 *Default: app_locale*
 
-**SetTranslator()**
+**translator()**
 
 This option let you to change the default translator in a specific translation.
 
@@ -82,12 +82,17 @@ This option let you to change the default translator in a specific translation.
 
 *Currently there are two available translators: apertium, mymemory. But we strongly recommend to use mymemory.*
 
-**setDebug()**
+**debug()**
 
 Debug option let you to know the reason of an unexpected result with colorful messages in a specific translation.
 
 *Default: false*
 
+**Save()**
+
+Save option let you to save a specific translation.
+
+*Default: false*
 ***************
 
 ### Examples of use
@@ -100,23 +105,23 @@ Then few examples of tranlsation:
 ```php
 {!! Laralang::trans('Hello world!') !!}
 <br>
-{!! Laralang::trans('Hello world!')->setDebug(true) !!}
+{!! Laralang::trans('Hello world!')->debug(true) !!}
 <br>
-{!! Laralang::trans('Hello world!')->setTo('es') !!}
+{!! Laralang::trans('Hello world!')->to('es') !!}
 <br>
-{!! Laralang::trans('Hello world!')->setTo('ca') !!}
+{!! Laralang::trans('Hello world!')->to('ca') !!}
 <br>
-{!! Laralang::trans('Hello world!')->setTo('ca')->setDebug(true) !!}
+{!! Laralang::trans('Hello world!')->to('ca')->debug(true) !!}
 <br>
-{!! Laralang::trans('Hallo welt!')->setFrom('de')->setTo('fr') !!}
+{!! Laralang::trans('Hallo welt!')->from('de')->to('fr') !!}
 <br>
-{!! Laralang::trans('Hello world!')->setTo('pt') !!}
+{!! Laralang::trans('Hello world!')->to('pt') !!}
 <br>
-{!! Laralang::trans('Hello world!')->setTo('de') !!}
+{!! Laralang::trans('Hello world!')->to('de') !!}
 <br>
-{!! Laralang::trans('Hello world!')->setTo('ml') !!}
+{!! Laralang::trans('Hello world!')->to('ml') !!}
 <br>
-{!! Laralang::trans('Hello world!')->setTo('zh') !!}
+{!! Laralang::trans('Hello world!')->to('zh') !!}
 ```
 
 **NOTE: Use {{ }} statements if translations comes from users to prevent XSS atacks**

@@ -49,7 +49,7 @@ class Translation
      *
      * @param bool $debug
      */
-    public function setDebug($debug)
+    public function debug($debug)
     {
         $this->debug = $debug;
 
@@ -61,7 +61,7 @@ class Translation
      *
      * @param string $lang
      */
-    public function setFrom($lang)
+    public function from($lang)
     {
         $this->from = $lang;
 
@@ -73,7 +73,7 @@ class Translation
      *
      * @param string $lang
      */
-    public function setTo($lang)
+    public function to($lang)
     {
         $this->to = $lang;
 
@@ -85,7 +85,7 @@ class Translation
      *
      * @param string $translator
      */
-    public function setTranslator($translator)
+    public function translator($translator)
     {
         $this->translator = $translator;
 
