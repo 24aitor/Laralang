@@ -31,13 +31,7 @@ class MymemoryTrans extends Translation
                  return;
              }
 
-<<<<<<< HEAD
              $this->translation = $data['responseData']['translatedText'];
-=======
-             $transObtained = $data->responseData->translatedText;
-
-             $this->translation = ucfirst(strtolower(trim($transObtained)));
->>>>>>> origin/master
 
              $this->checkSave();
 
