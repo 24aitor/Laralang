@@ -28,6 +28,7 @@ class MymemoryTrans extends Translation
                      }
                      $this->translation = "<font style='color:red;'>Error ".$data->responseStatus.': '.$details.'</font>';
                  }
+
                  return;
              }
 
