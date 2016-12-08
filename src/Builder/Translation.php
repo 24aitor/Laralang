@@ -33,7 +33,6 @@ class Translation
         $this->string = $string;
         $this->translation = $string;
 
-
         // Checking whether from_lang or to_lang are set as app_locale.
 
         if ($this->from == 'app_locale') {
@@ -118,7 +117,7 @@ class Translation
         if ($this->debug === true) {
             $this->translation = "<font style='color:#00CC00;'>Translation loaded from DB</font>";
         } else {
-            $this->translation = utf8_decode($existing[0]->translation);
+            $this->translation = ($existing[0]->translation);
         }
 
         return true;
@@ -135,7 +134,7 @@ class Translation
             $trans->from_lang = $this->from;
             $trans->to_lang = $this->to;
             $trans->translator = $this->translator;
-            $trans->translation = utf8_encode($this->translation);
+            $trans->translation = $this->translation;
             $trans->save();
 
             // Checking debug setting to determinate how to output translation
@@ -175,7 +174,9 @@ class Translation
      */
     public function __toString()
     {
-        if (!$this->loadIfExists()) {
+        if ($this->from == $this->to) {
+            return $this->string;
+        } elseif (!$this->loadIfExists()) {
             $this->main();
         }
 

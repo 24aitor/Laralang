@@ -44,19 +44,7 @@ class LaralangController extends Controller
 
     public function api()
     {
-        $cod = [];
-        $to_cod = DB_Translation::all();
-        foreach ($to_cod as $toc) {
-            if (mb_check_encoding(utf8_decode($toc['translation']), 'UTF-8')) {
-                $coded = utf8_decode($toc['translation']);
-            } else {
-                $coded = 'Error decoding, unkown chars';
-            }
-            $toc['translation'] = $coded;
-            array_push($cod, $toc);
-        }
-
-        return Response::json($cod);
+        return DB_Translation::all();
     }
 
     public function deleteTranslation(Request $request)
@@ -65,13 +53,21 @@ class LaralangController extends Controller
         $trans->delete();
     }
 
+    public function deleteAllTranslations()
+    {
+        $trans = DB_Translation::all();
+        foreach ($trans as $tran){
+            $tran->delete();
+        }
+    }
+    
     public function editTranslation(Request $request)
     {
         $trans = DB_Translation::findOrFail($request->id);
         $trans->string = $request->string;
         $trans->to_lang = $request->to;
         $trans->from_lang = $request->from;
-        $trans->translation = utf8_encode($request->translation);
+        $trans->translation = $request->translation;
         $trans->touch();
         $trans->save();
     }

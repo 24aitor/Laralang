@@ -16,25 +16,23 @@ class ApertiumTrans extends Translation
             // Host online
 
             $urlString = urlencode($this->string);
-            $url = "http://$host/json/translate?q=$urlString&langpair=$this->from%7C$this->to";
-            $json = file_get_contents($url);
-            $data = json_decode($json);
+            $urldata = file_get_contents("http://$host/json/translate?q=$urlString&langpair=$this->from|$this->to");
+            $data = json_decode($urldata, true);
+
 
             // Checking response status
 
-            if ($data->responseStatus != 200) {
+            if ($data['responseStatus'] != 200) {
                 if ($this->debug === true) {
-                    $this->translation = "<font style='color:red;'>Error ".$data->responseStatus.': '.$data->responseDetails.'</font>';
+                    $this->translation = "<font style='color:red;'>Error ".$data['responseStatus'].': '.$data['responseDetails'] .'</font>';
                 }
 
                 return;
             }
 
-            $transObtained = $data->responseData->translatedText;
-
+            $transObtained = $data['responseData']['translatedText'];
 
             $this->translation = ucfirst(strtolower(trim(str_replace('*', ' ', $transObtained))));
-
 
             // Checking debug setting to determinate how to output translation
 

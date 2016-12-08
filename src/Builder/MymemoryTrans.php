@@ -16,27 +16,22 @@ class MymemoryTrans extends Translation
 
              // Host online
              $urlString = urlencode($this->string);
-             $url = "http://$host/get?q=$urlString&langpair=$this->from%7C$this->to";
-             $json = file_get_contents($url);
-             $data = json_decode($json);
+             $urldata = file_get_contents("http://$host/get?q=$urlString&langpair=$this->from|$this->to");
+             $data = json_decode($urldata, true);
 
-             // Checking response status
-             if ($data->responseStatus != 200) {
+             if ($data['responseStatus'] != 200) {
                  if ($this->debug == true) {
-                     $details = $data->responseDetails;
-                     if ($data->responseStatus == 403) {
-                         $details = ($data->responseDetails);
+                     if ($data['responseStatus'] == 403) {
+                         $details = ($data['responseDetails']);
+                     } else {
+                         $details = $data['responseDetails'];
                      }
                      $this->translation = "<font style='color:red;'>Error ".$data->responseStatus.': '.$details.'</font>';
                  }
-
                  return;
              }
 
-
-             $transObtained = $data->responseData->translatedText;
-
-             $this->translation = ucfirst(strtolower(trim($transObtained)));
+             $this->translation = $data['responseData']['translatedText'];
 
              $this->checkSave();
 

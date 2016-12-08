@@ -11,6 +11,7 @@ if (config('laralang.default.routes')) {
             })->name('home');
             Route::get('/translations', 'LaralangController@showTranslations')->name('translations');
             Route::post('/delete', 'LaralangController@deleteTranslation')->name('delete');
+            Route::post('/delete/all', 'LaralangController@deleteAllTranslations')->name('deleteAll');
             Route::post('/edit', 'LaralangController@editTranslation');
             Route::get('/logout', 'LaralangController@logout')->name('logout');
             Route::group(['middleware' => ['throttle:5000,1', 'bindings']], function () {
