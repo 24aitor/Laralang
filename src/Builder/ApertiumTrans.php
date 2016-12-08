@@ -30,7 +30,11 @@ class ApertiumTrans extends Translation
                 return;
             }
 
+<<<<<<< HEAD
             $transObtained = $data['responseData']['translatedText'];
+=======
+            $transObtained = $data->responseData->translatedText;
+>>>>>>> origin/master
 
             $this->translation = ucfirst(strtolower(trim(str_replace('*', ' ', $transObtained))));
 
