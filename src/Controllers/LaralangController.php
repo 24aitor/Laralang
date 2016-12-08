@@ -6,7 +6,6 @@ use Aitor24\Laralang\Models\DB_Translation;
 use App\Http\Controllers\Controller;
 use Crypt;
 use Illuminate\Http\Request;
-use Response;
 
 class LaralangController extends Controller
 {
@@ -56,11 +55,11 @@ class LaralangController extends Controller
     public function deleteAllTranslations()
     {
         $trans = DB_Translation::all();
-        foreach ($trans as $tran){
+        foreach ($trans as $tran) {
             $tran->delete();
         }
     }
-    
+
     public function editTranslation(Request $request)
     {
         $trans = DB_Translation::findOrFail($request->id);
