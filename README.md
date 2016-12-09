@@ -59,7 +59,13 @@ Apart from the password, the rest of default values can be modified also on `con
 
 ## Using laralang
 
-### Functions
+### trans() method
+
+This functions is used to get a translation from a string to another language specified on default values, on app_locale or in every function.
+
+To simplify work we've implemented another package [(Localizer)](https://github.com/24aitor/Localizer) to set app_locale via middleware and it allows to get user browser language to set it as app_locale easily.
+
+#### Functions of trans()
 
 **from()**
 
@@ -95,46 +101,73 @@ Save option let you to save a specific translation.
 *Default: false*
 ***************
 
+### fromLanguages() method
+
+Returns an array with all languages from provides strings to translate.
+
+### toLanguages() method
+
+Returns an array with all languages that at least one string has been translated.
+
+### getLanguages() method
+
+Returns an array with ['key' => 'value'] where key is a language and value is an acronym from all languages tested in laralang.
+
 ### Examples of use
 
 
 Then few examples of tranlsation:
 
 
-
 ```php
-{!! Laralang::trans('Hello world!') !!}
-<br>
-{!! Laralang::trans('Hello world!')->debug(true) !!}
-<br>
-{!! Laralang::trans('Hello world!')->to('es') !!}
-<br>
-{!! Laralang::trans('Hello world!')->to('ca') !!}
-<br>
-{!! Laralang::trans('Hello world!')->to('ca')->debug(true) !!}
-<br>
-{!! Laralang::trans('Hallo welt!')->from('de')->to('fr') !!}
-<br>
-{!! Laralang::trans('Hello world!')->to('pt') !!}
-<br>
-{!! Laralang::trans('Hello world!')->to('de') !!}
-<br>
-{!! Laralang::trans('Hello world!')->to('ml') !!}
-<br>
-{!! Laralang::trans('Hello world!')->to('zh') !!}
+<center>
+    {!! Laralang::trans('Hello world!') !!}
+    <br>
+    {!! Laralang::trans('Hello world!')->debug(true) !!}
+    <br>
+    {!! Laralang::trans('Hello world!')->to('es') !!}
+    <br>
+    {!! Laralang::trans('Hello world!')->to('ca') !!}
+    <br>
+    {!! Laralang::trans('Hello world!')->to('ca')->debug(true) !!}
+    <br>
+    {!! Laralang::trans('Hallo welt!')->from('de')->to('fr') !!}
+    <br>
+    {!! Laralang::trans('Hello world!')->to('pt') !!}
+    <br>
+    {!! Laralang::trans('Hello world!')->to('de') !!}
+    <br>
+    {!! Laralang::trans('Hello world!')->to('ml') !!}
+    <br>
+    {!! Laralang::trans('Hello world!')->to('zh')->translator('apertium') !!}
+
+    <br>
+    From langs:
+    @foreach(Laralang::fromLanguages() as $lang)
+        {{$lang}}
+    @endforeach
+
+    <br>
+    To langs:
+    @foreach(Laralang::toLanguages() as $lang)
+        {{$lang}}
+    @endforeach
+</center>
 ```
 
 **NOTE: Use {{ }} statements if translations comes from users to prevent XSS atacks**
 
 Then the result:
 
-![Result of example](http://i.imgur.com/LKOjZdB.png)
+![Result of example](http://i.imgur.com/hWsRJLa.png)
 
 ### Admin panel
 
-Furthermore now you can control which translations are saved on your DB and then you can manage it *(edit and delete)*.
+Laralang allows you to control which translations are saved on your DB and then you can manage it *(edit and delete)*.
 
-#### First you should be logged into loaralang.
+#### Firsts steps
+
+**First you should be logged into loaralang**
 
 *Route prefix can be changed on your config file, but by default it's laralang*
 
@@ -142,7 +175,7 @@ Furthermore now you can control which translations are saved on your DB and then
 
 You should visit next url:
 
-http://host.domain/laralang/login
+http://domain/laralang/login
 
 or in localhost you should visit
 
@@ -150,10 +183,26 @@ http://localhost/project-path/public/laralang/login
 
 Then you should see the laralang login page (photo below)
 
-![Laralang login page](http://i.imgur.com/3DgOs3C.png)
+![Laralang login page](http://i.imgur.com/bjQJiHQ.png)
 
-Now you must enter the password you set on [Step 5](#step-5) and then click login to manage your translations!
+Now you must enter the password you set on [Step 5](#step-5.-configure-defalt-values) and then click login to manage your translations as can be seen on photos below!
 
-![View of translations](http://i.imgur.com/8eUzetl.png)
+![View of translations](http://i.imgur.com/NIF8yqL.png)
 
-![Editing translation #3](http://i.imgur.com/f3pcwab.png)
+![Editing translation #3](http://i.imgur.com/smK8xct.png)
+
+#### Filtering translations
+
+Laralang also lets you filter translations by *from_lang* and / or *to_lang*. Below you have an example:
+
+First we must access to filter view in route http://domain/laralang/translations/filter or well accessing across menu.
+
+![Menu](http://i.imgur.com/o1B4m1H.png)
+
+Then you can select from which language provides the originals strings and then from which language are translated this string with two selectors:
+
+![Filtering](http://i.imgur.com/ZRTONNE.png)
+
+Then the result:
+
+![Filtering result](http://i.imgur.com/lrk6mzR.png)
