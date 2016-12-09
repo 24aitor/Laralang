@@ -1,7 +1,9 @@
 @extends('laralang::template')
 @section('title', 'Filter - Laralang')
 @section('page_title', 'Filter')
-
+@section('nav_elements')
+<li><a href="{{ route('laralang::translations') }}">Translations</a></li>
+@endsection
 @section('content')
 <center>
 <div class="container" style="padding-top:140px;padding-bottom:265px">
