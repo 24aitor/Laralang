@@ -178,6 +178,7 @@ class Translation
             if ($this->debug) {
                 return "<font style='color:orange;'>Same in <> out language</font>";
             }
+
             return $this->string;
         } elseif (!$this->loadIfExists()) {
             $this->main();
