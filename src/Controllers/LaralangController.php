@@ -2,8 +2,8 @@
 
 namespace Aitor24\Laralang\Controllers;
 
-use Aitor24\Laralang\Models\DB_Translation;
 use Aitor24\Laralang\Facades\Laralang;
+use Aitor24\Laralang\Models\DB_Translation;
 use App\Http\Controllers\Controller;
 use Crypt;
 use Illuminate\Http\Request;
@@ -44,8 +44,7 @@ class LaralangController extends Controller
 
     public function showTranslationsFilter()
     {
-
-        return view('laralang::filter', ['languagesFrom' => Laralang::fromLanguages(), 'languagesTo' => Laralang::toLanguages() ]);
+        return view('laralang::filter', ['languagesFrom' => Laralang::fromLanguages(), 'languagesTo' => Laralang::toLanguages()]);
     }
 
     public function translationsFilter(Request $request)
@@ -53,39 +52,33 @@ class LaralangController extends Controller
         return redirect()->route('laralang::filterFromTo', [$request->from_lang, $request->to_lang]);
     }
 
-
     public function showTranslationsFiltered($from_lang, $to_lang)
     {
-        return view('laralang::translations', ['from_lang' => $from_lang, 'to_lang' => $to_lang ]);
+        return view('laralang::translations', ['from_lang' => $from_lang, 'to_lang' => $to_lang]);
     }
 
     public function api()
     {
-
         return DB_Translation::all();
     }
-
 
     public function apiFilterFromTo($from_lang, $to_lang)
     {
         // filter wich translation showld send
         if ($to_lang == 'all' && $from_lang == 'all') {
             return DB_Translation::all();
-
         } elseif ($to_lang == 'all') {
 
             //return translation where from_lang == $from
             return DB_Translation::where([['from_lang', $from_lang]])->get();
-
         } elseif ($from_lang == 'all') {
 
             //return translation where to_lang == $to
             return DB_Translation::where([['to_lang', $to_lang]])->get();
-
         } else {
 
             //return translation where from_lang == $from and to_lang == $to
-            return DB_Translation::where([['from_lang', $from_lang],['to_lang', $to_lang]])->get();
+            return DB_Translation::where([['from_lang', $from_lang], ['to_lang', $to_lang]])->get();
         }
     }
 
