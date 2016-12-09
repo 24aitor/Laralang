@@ -30,16 +30,32 @@ class Builder
     }
 
     /**
-     * Get the languages used.
+     * Get the languages that translations has been translated.
      *
      * @return array
      */
-    public static function languages()
+    public static function toLanguages()
     {
         $locales = [];
         $translations = DB_Translation::distinct()->select('to_lang')->get();
         foreach ($translations as $object) {
             array_push($locales, $object->to_lang);
+        }
+
+        return $locales;
+    }
+
+    /**
+     * Get the languages from translations has been translated.
+     *
+     * @return array
+     */
+    public static function fromLanguages()
+    {
+        $locales = [];
+        $translations = DB_Translation::distinct()->select('from_lang')->get();
+        foreach ($translations as $object) {
+            array_push($locales, $object->from_lang);
         }
 
         return $locales;

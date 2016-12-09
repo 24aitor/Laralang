@@ -14,7 +14,14 @@
 
         <title>@yield('title')</title>
 
-        @yield('meta-sec')
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
+
+        <style media="screen">
+        .shadow {
+          box-shadow: 0 0 4px 5px rgba(127, 127, 127, .5);
+        }
+        </style>
 
         <!-- CDN of moment js -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment-with-locales.js"></script>
@@ -24,7 +31,33 @@
 
     </head>
     <body>
-        <div id="app" style="background-color:#E6E6E6;">
+        <div id="app" style="background-color:#f4f4f4;">
+            @if(Route::currentRouteName() != 'laralang::login')
+            <center>
+            <div class="container" style="padding-top:60px">
+            	<div class="row">
+            		<div class="col-lg-6 offset-lg-3">
+            			<h1>@yield('page_title')</h1>
+            		</div>
+            		<div class="col-lg-3">
+            		<div class="btn-group">
+            		  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            		    <i class="mdi mdi-settings"></i> Actions
+            		  </button>
+            		  <div class="dropdown-menu">
+                          <center>
+
+                              @yield('nav_elements')
+                              <div class="dropdown-divider"></div>
+                              <a href="{{ route('laralang::logout') }}" class='logout'>Logout</a>
+                          </center>
+            		  </div>
+            		</div>
+            		</div>
+            	</div>
+            </div>
+            </center>
+            @endif
             @yield('content')
         </div>
 

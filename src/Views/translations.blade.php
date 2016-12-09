@@ -1,36 +1,23 @@
 @extends('laralang::template')
 @section('title', 'Translations - Laralang')
-@section('meta-sec')
-<meta name="csrf-token" content="{{ csrf_token() }}">
+@php
+if (isset($from_lang) && isset($to_lang)) {
+	$api_route = route('laralang::apiFilterFromTo', [$from_lang, $to_lang]);
+	} else {
+	$api_route = route('laralang::api');
+}
+@endphp
+@section('page_title', 'Translations')
+@section('nav_elements')
+<li><a href="{{ route('laralang::filter') }}">Filter</a></li>
+<li style="padding-top:10px"><a href="#" class="delete-all-button" data-toggle="modal" data-target="#deleteAllTranslationModal">Delete All</a></li>
 @endsection
-
 @section('content')
 <center>
-<br><br>
-<div class="container">
+<div class="container" style="margin-top:40px">
 	<div class="row">
-		<div class="col-lg-6 offset-lg-3">
-			<h1>Laralang</h1>
-		</div>
-		<div class="col-lg-3">
-		<div class="btn-group">
-		  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		    <i class="mdi mdi-settings"></i> Actions
-		  </button>
-		  <div class="dropdown-menu">
-			  <center>
-			<a href="{{ route('laralang::logout') }}" class='logout'>Logout</a>
-			<div class="dropdown-divider"></div>
-			<a href="#" class="delete-all-button" data-toggle="modal" data-target="#deleteAllTranslationModal">Delete All</a>
-		</center>
-		  </div>
-		</div>
-		</div>
-		<br><br>
-		<br><br>
-		<br><br>
-		<div class="container">
-			<translations style="background-color:white;"></translations>
+		<div class="container" style="padding-top:50px">
+			<translations class="shadow" style="background-color:white;"></translations>
 		</div>
 	</div>
 </div>
@@ -161,9 +148,8 @@
 	  </tbody>
 	</table>
 </template>
+
 @endsection
-<!--
-		<i class="mdi mdi-account" aria-hidden="true"></i>  -->
 @section('js')
 <script type="text/javascript">
 Vue.component('translations', {
@@ -192,7 +178,7 @@ Vue.component('translations', {
 
 
 		getTranslations: function () {
-			$.getJSON("{{ route('laralang::api')}}", function(translations) {
+			$.getJSON("{{ $api_route }}", function(translations) {
 				translations.forEach(function(entry) {
 					entry.updated_at = moment(entry.updated_at).fromNow();
 				});

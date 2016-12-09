@@ -10,12 +10,20 @@ if (config('laralang.default.routes')) {
                 return redirect(Route('laralang::translations'));
             })->name('home');
             Route::get('/translations', 'LaralangController@showTranslations')->name('translations');
+
+            Route::get('/translations/filter', 'LaralangController@showTranslationsFilter')->name('filter');
+            Route::post('/translations/filter', 'LaralangController@translationsFilter')->name('filter_post');
+            Route::get('/translations/filter/from/{from_lang}/to/{to_lang}', 'LaralangController@showTranslationsFiltered')->name('filterFromTo');
+
             Route::post('/delete', 'LaralangController@deleteTranslation')->name('delete');
             Route::post('/delete/all', 'LaralangController@deleteAllTranslations')->name('deleteAll');
+
             Route::post('/edit', 'LaralangController@editTranslation');
             Route::get('/logout', 'LaralangController@logout')->name('logout');
+
             Route::group(['middleware' => ['throttle:5000,1', 'bindings']], function () {
                 Route::get('/api', 'LaralangController@api')->name('api');
+                Route::get('/api/filter/from/{from_lang}/to/{to_lang}', 'LaralangController@apiFilterFromTo')->name('apiFilterFromTo');
             });
         });
     });
