@@ -32,9 +32,9 @@ class MymemoryTrans extends Translation
                  return;
              }
 
+             // Checking if any translation provides from 24aitor to use it
              foreach ($data['matches']  as $match) {
                  if ($match['last-updated-by'] == '24aitor') {
-
                      $this->translation = $match['translation'];
                      $this->checkSave();
 
@@ -46,7 +46,6 @@ class MymemoryTrans extends Translation
              $this->checkSave();
 
              return;
-
          }
      }
 }
