@@ -32,11 +32,21 @@ class MymemoryTrans extends Translation
                  return;
              }
 
-             $this->translation = $data['responseData']['translatedText'];
+             foreach ($data['matches']  as $match) {
+                 if ($match['last-updated-by'] == '24aitor') {
 
+                     $this->translation = $match['translation'];
+                     $this->checkSave();
+
+                     return;
+                 }
+             }
+
+             $this->translation = $data['responseData']['translatedText'];
              $this->checkSave();
 
              return;
+
          }
      }
 }
