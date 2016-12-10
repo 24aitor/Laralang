@@ -80,14 +80,6 @@ It sets the language that you'll output in a specific translation.
 
 *Default: app_locale*
 
-**translator()**
-
-This option let you to change the default translator in a specific translation.
-
-*Default: mymemory*
-
-*Currently there are two available translators: apertium, mymemory. But we strongly recommend to use mymemory.*
-
 **debug()**
 
 Debug option let you to know the reason of an unexpected result with colorful messages in a specific translation.
