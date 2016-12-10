@@ -9,8 +9,8 @@ if (isset($from_lang) && isset($to_lang)) {
 @endphp
 @section('page_title', 'Translations')
 @section('nav_elements')
-<li><a href="{{ route('laralang::filter') }}">Filter</a></li>
-<li style="padding-top:10px"><a href="#" class="delete-all-button" data-toggle="modal" data-target="#deleteAllTranslationModal">Delete All</a></li>
+<li style="padding-top:8px"><a href="{{ route('laralang::filter') }}">Filter</a></li>
+<li style="padding-top:8px"><a href="#" class="delete-all-button" data-toggle="modal" data-target="#deleteAllTranslationModal">Delete All</a></li>
 @endsection
 @section('content')
 <center>

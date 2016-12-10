@@ -46,10 +46,10 @@
             		  </button>
             		  <div class="dropdown-menu">
                           <center>
-
+                              <li><a href="{{ url('/') }}">Visit site</a></li>
                               @yield('nav_elements')
                               <div class="dropdown-divider"></div>
-                              <a href="{{ route('laralang::logout') }}" class='logout'>Logout</a>
+                              <li><a href="{{ route('laralang::logout') }}" class='logout'>Logout</a></li>
                           </center>
             		  </div>
             		</div>

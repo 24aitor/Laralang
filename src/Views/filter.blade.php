@@ -2,7 +2,7 @@
 @section('title', 'Filter - Laralang')
 @section('page_title', 'Filter')
 @section('nav_elements')
-<li><a href="{{ route('laralang::translations') }}">Translations</a></li>
+<li style="padding-top:8px"><a href="{{ route('laralang::translations') }}">Translations</a></li>
 @endsection
 @section('content')
 <center>
