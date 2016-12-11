@@ -12,7 +12,7 @@ return [
         'routes'         => true,
         'prefix'         => 'laralang',
         'password'       => 'laralangAdmin',
-        'translator'     => 'mymemory',
+        'translator'     => 'google',
         'from_lang'      => 'en',
         'to_lang'        => 'app_locale',
         'middleware'     => Aitor24\Laralang\Middleware\LaralangMiddleware::class,
