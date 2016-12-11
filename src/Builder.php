@@ -3,8 +3,8 @@
 namespace Aitor24\Laralang;
 
 use Aitor24\Laralang\Builder\ApertiumTrans;
-use Aitor24\Laralang\Builder\MymemoryTrans;
 use Aitor24\Laralang\Builder\GoogleTrans;
+use Aitor24\Laralang\Builder\MymemoryTrans;
 use Aitor24\Laralang\Models\DB_Translation;
 
 class Builder
