@@ -4,6 +4,7 @@
 [![Scrutinizer](https://img.shields.io/scrutinizer/g/24aitor/laralang.svg?style=flat-square)](https://scrutinizer-ci.com/g/24aitor/laralang/?branch=master)
 [![GitHub license](https://img.shields.io/github/license/24aitor/laralang.svg?style=flat-square)](https://raw.githubusercontent.com/24aitor/laralang/master/LICENSE)
 
+
 ![](http://i.imgur.com/11Tvcoh.png)
 
 ## Getting Started
@@ -56,6 +57,12 @@ php artisan migrate
 **STRONGLY IMPORTANT:** Change the password of config *(Default password: laralangAdmin )*
 
 Apart from the password, the rest of default values can be modified also on `config/laralang.php`. Furthermore you can modify these in a specific translation with the functions below.
+
+**Available Translators:** Google Translator (Recommended & config default), MyMemory, Apertium (Strongly not recomended)
+
+*config values for translators*: 'google', 'mymemory', 'apertium'
+
+
 
 ## Using laralang
 
