@@ -71,6 +71,17 @@ class Builder
      */
     public static function allLanguages()
     {
-        return ['English' => 'en', 'Spanish' => 'es', 'Catalan' => 'ca', 'Portuguese' => 'pt', 'Chinese' => 'zh', 'Japanese' => 'ja', 'German' => 'de', 'French' => 'fr'];
+        return [
+            'en' => 'English',
+            'es' => 'Spanish',
+            'ca' => 'Catalan',
+            'pt' => 'Portuguese',
+            'zh' => 'Chinese',
+            'ja' => 'Japanese',
+            'de' => 'German',
+            'fr' => 'French',
+            'eu' => 'Basque',
+            'ru' => 'Russian',
+        ];
     }
 }
