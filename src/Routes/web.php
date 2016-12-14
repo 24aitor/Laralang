@@ -5,7 +5,9 @@ if (config('laralang.default.routes')) {
         Route::get('/login', 'LaralangController@showLogin')->name('login');
         Route::post('/login', 'LaralangController@login');
         if (config('laralang.default.api')) {
-            Route::post('/api/translate', 'LaralangController@apiTranslate')->name('apiTranslate');
+            Route::group(['middleware' => ['throttle:5000,1', 'bindings']], function () {
+                Route::post('/api/translate', 'LaralangController@apiTranslate')->name('apiTranslate');
+            });
         }
         Route::group(['middleware' => 'laralang.middleware'], function () {
             Route::get('/', function () {
