@@ -62,6 +62,13 @@ class LaralangController extends Controller
         return DB_Translation::all();
     }
 
+    public function apiTranslate(Request $request)
+    {
+        $translatedText = Laralang::trans($request->string)->to($request->to);
+        return ['translatedText' => strval($translatedText)];
+    }
+
+
     public function apiFilterFromTo($from_lang, $to_lang)
     {
         // filter wich translation showld send

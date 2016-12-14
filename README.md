@@ -58,7 +58,7 @@ php artisan migrate
 
 Apart from the password, the rest of default values can be modified also on `config/laralang.php`. Furthermore you can modify these in a specific translation with the functions below.
 
-**Available Translators:** Google Translator (Recommended & config default), MyMemory, Apertium (Strongly not recomended)
+**Available Translators:** Google Translator, MyMemory (default), Apertium (Strongly not recomended)
 
 *config values for translators*: 'google', 'mymemory', 'apertium'
 
@@ -205,3 +205,13 @@ Then you can select from which language provides the originals strings and then 
 Then the result:
 
 ![Filtering result](http://i.imgur.com/lrk6mzR.png)
+
+### Api translations
+
+There exists an api to get translated text. First of all you should enable it on config, then you should configure ajax as explained in [laravel official site](https://laravel.com/docs/5.3/csrf#csrf-x-csrf-token) and then call api (method=POST)
+
+```javascript
+$.post('{{route("laralang::apiTranslate")}}', {'string' : 'This is my string to translate', 'to' : 'de'}, function(response) {
+    var translatedText = response.translatedText;
+}, 'json');
+```
