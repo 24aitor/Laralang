@@ -23,7 +23,6 @@ if (config('laralang.default.routes')) {
             Route::post('/edit', 'LaralangController@editTranslation');
             Route::get('/logout', 'LaralangController@logout')->name('logout');
 
-
             Route::group(['middleware' => ['throttle:5000,1', 'bindings']], function () {
                 Route::get('/api', 'LaralangController@api')->name('api');
                 Route::get('/api/filter/from/{from_lang}/to/{to_lang}', 'LaralangController@apiFilterFromTo')->name('apiFilterFromTo');
