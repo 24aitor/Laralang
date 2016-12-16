@@ -6,6 +6,7 @@ use Aitor24\Laralang\Builder\ApertiumTrans;
 use Aitor24\Laralang\Builder\GoogleTrans;
 use Aitor24\Laralang\Builder\MymemoryTrans;
 use Aitor24\Laralang\Models\DB_Translation;
+use URL;
 
 class Builder
 {
@@ -114,5 +115,26 @@ class Builder
             return secure_url($url);
         }
         return url($url);
+    }
+
+    /**
+     * Return secure_url method or url method depending on config https
+     *
+     * @param string $url
+     *
+     * @return string
+     */
+    public static function checkRoute($routeName, $routeArgs = NULL)
+    {
+        if (config('laralang.default.https')) {
+            if (isset($routeArgs)) {
+                return secure_url(URL::route($routeName,$routeArgs,false));
+            }
+            return secure_url(URL::route($routeName,[],false));
+        }
+        if (isset($routeArgs)) {
+            return route($routeName, $routeArgs);
+        }
+        return route($routeName);
     }
 }

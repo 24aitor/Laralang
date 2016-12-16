@@ -2,14 +2,14 @@
 @section('title', 'Translations - Laralang')
 @php
 if (isset($from_lang) && isset($to_lang)) {
-	$api_route = route('laralang::apiFilterFromTo', [$from_lang, $to_lang]);
+	$api_route = Laralang::checkRoute('laralang::apiFilterFromTo', [$from_lang, $to_lang]);
 	} else {
-	$api_route = route('laralang::api');
+	$api_route = Laralang::checkRoute('laralang::api');
 }
 @endphp
 @section('page_title', 'Translations')
 @section('nav_elements')
-<li style="padding-top:8px"><a href="{{ route('laralang::filter') }}">Filter</a></li>
+<li style="padding-top:8px"><a href="{{ Laralang::checkRoute('laralang::filter') }}">Filter</a></li>
 <li style="padding-top:8px"><a href="#" class="delete-all-button" data-toggle="modal" data-target="#deleteAllTranslationModal">Delete All</a></li>
 @endsection
 @section('content')
@@ -171,8 +171,8 @@ Vue.component('translations', {
 			$('.modal-title-delete').html('Deleting tranlation #'+id);
 			$('.input-from').val(from);
 			$('.input-to').val(to);
-			$('.input-string').html(string);
-			$('.input-trans').html(translation);
+			$('.input-string').val(string);
+			$('.input-trans').val(translation);
 			$('.confirmation-message').html('Are you sure you want to delete translation #' + id + ' ?');
 		},
 
@@ -217,7 +217,7 @@ $( function() {
 
 	$('#delete').click(function() {
 		var trans_id = $('.trans-id').val();
-		<?php $url_route = route('laralang::deleteTrans');
+		<?php $url_route = Laralang::checkRoute('laralang::deleteTrans');
 		?>
 		$.ajax({
 			type: "POST",
@@ -233,7 +233,7 @@ $( function() {
 	});
 
 	$('#delete-all-button-confirm').click(function() {
-		<?php $url_route = route('laralang::deleteAll');
+		<?php $url_route = Laralang::checkRoute('laralang::deleteAll');
 		?>
 		$.ajax({
 			type: "POST",
@@ -250,7 +250,7 @@ $( function() {
 
 	$('#edit').click(function() {
 		var trans_id = $('.trans-id').val();
-		<?php $url_route =  route('laralang::editTrans');
+		<?php $url_route =  Laralang::checkRoute('laralang::editTrans');
 		?>
 		$.ajax({
 			type: "POST",
