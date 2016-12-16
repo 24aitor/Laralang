@@ -19,10 +19,10 @@ if (config('laralang.default.routes')) {
             Route::post('/translations/filter', 'LaralangController@translationsFilter')->name('filter_post');
             Route::get('/translations/filter/from/{from_lang}/to/{to_lang}', 'LaralangController@showTranslationsFiltered')->name('filterFromTo');
 
-            Route::post('/delete', 'LaralangController@deleteTranslation')->name('delete');
+            Route::post('/delete', 'LaralangController@deleteTranslation')->name('deleteTrans');
             Route::post('/delete/all', 'LaralangController@deleteAllTranslations')->name('deleteAll');
 
-            Route::post('/edit', 'LaralangController@editTranslation');
+            Route::post('/edit', 'LaralangController@editTranslation')->name('editTrans');
             Route::get('/logout', 'LaralangController@logout')->name('logout');
 
             Route::group(['middleware' => ['throttle:5000,1', 'bindings']], function () {

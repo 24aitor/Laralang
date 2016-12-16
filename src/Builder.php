@@ -84,4 +84,35 @@ class Builder
             'ru' => 'Russian',
         ];
     }
+
+
+    /**
+     * Return secure_asset method or asset method depending on config https
+     *
+     * @param string $asset
+     *
+     * @return string
+     */
+    public static function checkAsset($asset)
+    {
+        if (config('laralang.default.https')) {
+            return secure_asset($asset);
+        }
+        return asset($asset);
+    }
+
+    /**
+     * Return secure_url method or url method depending on config https
+     *
+     * @param string $url
+     *
+     * @return string
+     */
+    public static function checkUrl($url)
+    {
+        if (config('laralang.default.https')) {
+            return secure_url($url);
+        }
+        return url($url);
+    }
 }

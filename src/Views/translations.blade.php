@@ -217,7 +217,7 @@ $( function() {
 
 	$('#delete').click(function() {
 		var trans_id = $('.trans-id').val();
-		<?php $url_route = url('/').'/'.config('laralang.default.prefix').'/delete';
+		<?php $url_route = route('laralang::deleteTrans');
 		?>
 		$.ajax({
 			type: "POST",
@@ -233,7 +233,7 @@ $( function() {
 	});
 
 	$('#delete-all-button-confirm').click(function() {
-		<?php $url_route = url('/').'/'.config('laralang.default.prefix').'/delete/all';
+		<?php $url_route = route('laralang::deleteAll');
 		?>
 		$.ajax({
 			type: "POST",
@@ -250,7 +250,7 @@ $( function() {
 
 	$('#edit').click(function() {
 		var trans_id = $('.trans-id').val();
-		<?php $url_route = url('/').'/'.config('laralang.default.prefix').'/edit';
+		<?php $url_route =  route('laralang::editTrans');
 		?>
 		$.ajax({
 			type: "POST",

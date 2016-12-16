@@ -3,13 +3,14 @@
     <head>
 
         <meta charset="utf-8">
+        <meta name="viewport" content="width=320, initial-scale=1.0, maximum-scale=1.0">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
         <!-- CDN of icons -->
         <link rel="stylesheet" href="http://cdn.materialdesignicons.com/1.7.22/css/materialdesignicons.min.css">
 
 		<link rel="icon" href="favicon.ico" type="image/x-icon"/>
-        <link rel="icon" href="{{asset('vendor/Aitor24/Laralang/Images/icon.png')}}">
+        <link rel="icon" href="{{Laralang::checkAsset('vendor/Aitor24/Laralang/Images/icon.png')}}">
 
 
         <title>@yield('title')</title>
@@ -46,7 +47,7 @@
             		  </button>
             		  <div class="dropdown-menu">
                           <center>
-                              <li><a href="{{ url('/') }}">Visit site</a></li>
+                              <li><a href="{{ Laralang::checkUrl('/') }}">Visit site</a></li>
                               @yield('nav_elements')
                               <div class="dropdown-divider"></div>
                               <li><a href="{{ route('laralang::logout') }}" class='logout'>Logout</a></li>
