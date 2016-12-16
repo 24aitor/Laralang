@@ -86,9 +86,8 @@ class Builder
         ];
     }
 
-
     /**
-     * Return secure_asset method or asset method depending on config https
+     * Return secure_asset method or asset method depending on config https.
      *
      * @param string $asset
      *
@@ -99,11 +98,12 @@ class Builder
         if (config('laralang.default.https')) {
             return secure_asset($asset);
         }
+
         return asset($asset);
     }
 
     /**
-     * Return secure_url method or url method depending on config https
+     * Return secure_url method or url method depending on config https.
      *
      * @param string $url
      *
@@ -114,27 +114,30 @@ class Builder
         if (config('laralang.default.https')) {
             return secure_url($url);
         }
+
         return url($url);
     }
 
     /**
-     * Return secure_url method or url method depending on config https
+     * Return secure_url method or url method depending on config https.
      *
      * @param string $url
      *
      * @return string
      */
-    public static function checkRoute($routeName, $routeArgs = NULL)
+    public static function checkRoute($routeName, $routeArgs = null)
     {
         if (config('laralang.default.https')) {
             if (isset($routeArgs)) {
-                return secure_url(URL::route($routeName,$routeArgs,false));
+                return secure_url(URL::route($routeName, $routeArgs, false));
             }
-            return secure_url(URL::route($routeName,[],false));
+
+            return secure_url(URL::route($routeName, [], false));
         }
         if (isset($routeArgs)) {
             return route($routeName, $routeArgs);
         }
+
         return route($routeName);
     }
 }
