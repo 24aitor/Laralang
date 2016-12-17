@@ -21,13 +21,13 @@ composer require aitor24/laralang
 
 Include the line below to config/app.php inside array `'providers' => [` :
 
-```
+```php
 Aitor24\Laralang\LaralangServiceProvider::class,
 ```
 
 Include the line below to config/app.php inside array `'aliases' => [` :
 
-```
+```php
 'Laralang'   => Aitor24\Laralang\Facades\Laralang::class,
 ```
 
