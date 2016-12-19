@@ -3,8 +3,8 @@
 namespace Aitor24\Laralang\Controllers;
 
 use Aitor24\Laralang\Facades\Laralang;
-use Aitor24\Linker\Facades\Linker;
 use Aitor24\Laralang\Models\DB_Translation;
+use Aitor24\Linker\Facades\Linker;
 use App\Http\Controllers\Controller;
 use Crypt;
 use Illuminate\Http\Request;

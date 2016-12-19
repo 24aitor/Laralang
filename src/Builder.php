@@ -6,7 +6,6 @@ use Aitor24\Laralang\Builder\ApertiumTrans;
 use Aitor24\Laralang\Builder\GoogleTrans;
 use Aitor24\Laralang\Builder\MymemoryTrans;
 use Aitor24\Laralang\Models\DB_Translation;
-use URL;
 
 class Builder
 {
