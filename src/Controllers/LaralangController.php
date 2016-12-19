@@ -3,6 +3,7 @@
 namespace Aitor24\Laralang\Controllers;
 
 use Aitor24\Laralang\Facades\Laralang;
+use Aitor24\Linker\Facades\Linker;
 use Aitor24\Laralang\Models\DB_Translation;
 use App\Http\Controllers\Controller;
 use Crypt;
@@ -27,14 +28,14 @@ class LaralangController extends Controller
             ->with('status', 'Invalid password');
         }
 
-        return redirect(Route('laralang::translations'));
+        return redirect(Linker::route('laralang::translations'));
     }
 
     public function logout(Request $request)
     {
         $request->session()->forget('laralang.password');
 
-        return redirect(Route('laralang::login'));
+        return redirect(Linker::route('laralang::login'));
     }
 
     public function showTranslations()
@@ -49,7 +50,7 @@ class LaralangController extends Controller
 
     public function translationsFilter(Request $request)
     {
-        return redirect()->route('laralang::filterFromTo', [$request->from_lang, $request->to_lang]);
+        return redirect(Linker::route('laralang::filterFromTo', [$request->from_lang, $request->to_lang]));
     }
 
     public function showTranslationsFiltered($from_lang, $to_lang)

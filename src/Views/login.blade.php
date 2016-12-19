@@ -7,7 +7,7 @@
         <div class="col-xs-12 col-lg-8 offset-lg-2">
             <div class="card card-block shadow">
             <br>
-            <img src="{{Laralang::checkAsset('vendor/Aitor24/Laralang/Images/icon.png')}}" alt="Laralang logo" width="150">
+            <img src="{{Aitor24\Linker\Facades\Linker::asset('vendor/Aitor24/Laralang/Images/icon.png')}}" alt="Laralang logo" width="150">
             <br><br>
             <br><br>
             <h4 class="card-title">Laralang login</h4>

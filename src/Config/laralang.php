@@ -11,7 +11,6 @@ return [
         'debug'          => false,
         'routes'         => true,
         'api'            => false,
-        'https'          => false,
         'prefix'         => 'laralang',
         'password'       => 'laralangAdmin',
         'translator'     => 'google',

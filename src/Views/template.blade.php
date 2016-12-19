@@ -9,8 +9,7 @@
         <!-- CDN of icons -->
         <link rel="stylesheet" href="http://cdn.materialdesignicons.com/1.7.22/css/materialdesignicons.min.css">
 
-		<link rel="icon" href="favicon.ico" type="image/x-icon"/>
-        <link rel="icon" href="{{Laralang::checkAsset('vendor/Aitor24/Laralang/Images/icon.png')}}">
+        <link rel="icon" href="{{Aitor24\Linker\Facades\Linker::asset('vendor/Aitor24/Laralang/Images/icon.png')}}">
 
 
         <title>@yield('title')</title>
@@ -47,10 +46,10 @@
             		  </button>
             		  <div class="dropdown-menu">
                           <center>
-                              <li><a href="{{ Laralang::checkUrl('/') }}">Visit site</a></li>
+                              <li><a href="{{ Aitor24\Linker\Facades\Linker::url('/') }}">Visit site</a></li>
                               @yield('nav_elements')
                               <div class="dropdown-divider"></div>
-                              <li><a href="{{ route('laralang::logout') }}" class='logout'>Logout</a></li>
+                              <li><a href="{{ Aitor24\Linker\Facades\Linker::route('laralang::logout') }}" class='logout'>Logout</a></li>
                           </center>
             		  </div>
             		</div>
