@@ -3,7 +3,7 @@
     "description": "This package let you translate strings from any language to another in laravel 5.X",
     "require": {
         "php": ">=5.6.4",
-        "laravel/framework": "5.*",
+        "laravel/framework": "5.4",
         "aitor24/linker": ">=1.0.2"
     },
     "type": "translations",

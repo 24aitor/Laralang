@@ -22,7 +22,7 @@ class LaralangServiceProvider extends ServiceProvider
             __DIR__.'/Assets'              => public_path('vendor/Aitor24/Laralang'),
         ], 'laralang_pkg');
 
-        $router->middleware('laralang.middleware', config('laralang.default.middleware'));
+        $router->aliasMiddleware('laralang.middleware', config('laralang.default.middleware'));
 
         $this->loadTranslationsFrom(__DIR__.'/translations', 'laralang');
         $this->loadMigrationsFrom(__DIR__.'/Migrations', 'laralang');
