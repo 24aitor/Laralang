@@ -1,11 +1,15 @@
-# Laralang
-
-[![StyleCI](https://styleci.io/repos/69460815/shield?branch=master)](https://styleci.io/repos/69460815)
-[![Scrutinizer](https://img.shields.io/scrutinizer/g/24aitor/laralang.svg?style=flat-square)](https://scrutinizer-ci.com/g/24aitor/laralang/?branch=master)
-[![GitHub license](https://img.shields.io/github/license/24aitor/laralang.svg?style=flat-square)](https://raw.githubusercontent.com/24aitor/laralang/master/LICENSE)
-
+<p align="center">
+    <h1>Laralang</h1>
+</p>
 
 ![](http://i.imgur.com/11Tvcoh.png)
+
+<p align="center">
+    <a href="https://styleci.io/repos/69460815"><img src="https://styleci.io/repos/69460815/shield?branch=master" alt="StyleCI"></a>
+    <a href="https://scrutinizer-ci.com/g/24aitor/laralang/?branch=master"><img src="https://img.shields.io/scrutinizer/g/24aitor/laralang.svg?style=flat-square" alt="Scrutinizer"></a>
+    <a href="https://raw.githubusercontent.com/24aitor/laralang/master/LICENSE"><img src="https://img.shields.io/github/license/24aitor/laralang.svg?style=flat-square" alt="License"></a>
+</p>
+
 
 ## Getting Started
 
