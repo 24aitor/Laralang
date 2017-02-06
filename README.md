@@ -1,6 +1,4 @@
-<p align="center">
-    <h1>Laralang</h1>
-</p>
+# Laralang
 
 ![](http://i.imgur.com/11Tvcoh.png)
 
