@@ -99,9 +99,7 @@ class LaralangController extends Controller
     public function deleteAllTranslations()
     {
         $trans = DB_Translation::all();
-        foreach ($trans as $tran) {
-            $tran->delete();
-        }
+        $trans->delete();
     }
 
     public function editTranslation(Request $request)
