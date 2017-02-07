@@ -108,10 +108,10 @@ class Translation
     public function loadIfExists()
     {
         $existing = DB_Translation::where([
-            'string' => $this->string,
-            'from_lang' => $this->from,
-            'to_lang' => $this->to,
-            'translator' => $this->translator
+            'string'     => $this->string,
+            'from_lang'  => $this->from,
+            'to_lang'    => $this->to,
+            'translator' => $this->translator,
         ])->get();
 
         if (count($existing) == 0) {
@@ -171,7 +171,8 @@ class Translation
         }
     }
 
-    private function replaceVars() {
+    private function replaceVars()
+    {
         foreach ($this->vars as $key => $var) {
             $this->translation = str_replace('VAR'.$key, $var, $this->translation);
         }
@@ -193,6 +194,7 @@ class Translation
             $this->main();
         }
         $this->replaceVars();
+
         return $this->translation;
     }
 }
