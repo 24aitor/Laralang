@@ -23,7 +23,7 @@ class Translation
      *
      * @param string $string
      */
-    public function __construct($string)
+    public function __construct($string, $vars = [])
     {
         $this->translator = config('laralang.default.translator');
         $this->debug = config('laralang.default.debug');
@@ -32,6 +32,7 @@ class Translation
         $this->to = config('laralang.default.to_lang');
         $this->string = $string;
         $this->translation = $string;
+        $this->vars = $vars;
 
         // Checking whether from_lang or to_lang are set as app_locale.
 
@@ -106,10 +107,12 @@ class Translation
 
     public function loadIfExists()
     {
-        $existing = DB_Translation::where('string', '=', $this->string)
-        ->where('from_lang', '=', $this->from)
-        ->where('to_lang', '=', $this->to)
-        ->where('translator', '=', $this->translator)->get();
+        $existing = DB_Translation::where([
+            'string' => $this->string,
+            'from_lang' => $this->from,
+            'to_lang' => $this->to,
+            'translator' => $this->translator
+        ])->get();
 
         if (count($existing) == 0) {
             return false;
@@ -168,6 +171,12 @@ class Translation
         }
     }
 
+    private function replaceVars() {
+        foreach ($this->vars as $key => $var) {
+            $this->translation = str_replace('VAR'.$key, $var, $this->translation);
+        }
+    }
+
     /**
      * This fuction is called by trans() function of Fadade Laralang
      * It would call run() function of this class and returns the translation.
@@ -183,7 +192,7 @@ class Translation
         } elseif (!$this->loadIfExists()) {
             $this->main();
         }
-
+        $this->replaceVars();
         return $this->translation;
     }
 }
