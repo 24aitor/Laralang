@@ -61,6 +61,7 @@ class LaralangController extends Controller
     public function translate(Request $request)
     {
         Laralang::generateTranslations($request->input('is_package'), $request->input('package'), $request->input('path'), $request->input('to_langs'));
+
         return redirect(Linker::route('laralang::translate'));
     }
 
