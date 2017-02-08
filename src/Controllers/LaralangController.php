@@ -28,7 +28,7 @@ class LaralangController extends Controller
             ->with('status', 'Invalid password');
         }
 
-        return redirect(Linker::route('laralang::translations'));
+        return redirect(Linker::route('laralang::index'));
     }
 
     public function logout(Request $request)
@@ -36,6 +36,11 @@ class LaralangController extends Controller
         $request->session()->forget('laralang.password');
 
         return redirect(Linker::route('laralang::login'));
+    }
+
+    public function index()
+    {
+        return view('laralang::index');
     }
 
     public function showTranslations()
@@ -46,6 +51,17 @@ class LaralangController extends Controller
     public function showTranslationsFilter()
     {
         return view('laralang::filter', ['languagesFrom' => Laralang::fromLanguages(), 'languagesTo' => Laralang::toLanguages()]);
+    }
+
+    public function showTranslate()
+    {
+        return view('laralang::translate');
+    }
+
+    public function translate(Request $request)
+    {
+        Laralang::generateTranslations($request->input('is_package'), $request->input('package'), $request->input('path'), $request->input('to_langs'));
+        return redirect(Linker::route('laralang::translate'));
     }
 
     public function translationsFilter(Request $request)

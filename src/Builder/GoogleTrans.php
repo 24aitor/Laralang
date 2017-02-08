@@ -26,7 +26,7 @@ class GoogleTrans extends Translation
                  $transl = explode('","', $tran);
                  array_push($trans, str_replace('\"', '"', ucfirst(substr($transl[0], 1))));
              }
-             $this->translation = implode(' ', $trans);
+             $this->translation = trim(implode(' ', $trans));
              $this->checkSave();
 
              return;

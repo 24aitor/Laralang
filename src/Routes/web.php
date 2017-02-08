@@ -10,10 +10,11 @@ if (config('laralang.default.routes')) {
             });
         }
         Route::group(['middleware' => 'laralang.middleware'], function () {
-            Route::get('/', function () {
-                return redirect(Route('laralang::translations'));
-            })->name('home');
+            Route::get('/', 'LaralangController@index')->name('index');
             Route::get('/translations', 'LaralangController@showTranslations')->name('translations');
+
+            Route::get('/translate', 'LaralangController@showTranslate')->name('translate');
+            Route::post('/translate', 'LaralangController@translate');
 
             Route::get('/translations/filter', 'LaralangController@showTranslationsFilter')->name('filter');
             Route::post('/translations/filter', 'LaralangController@translationsFilter')->name('filter_post');
