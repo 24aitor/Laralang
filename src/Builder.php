@@ -33,13 +33,13 @@ class Builder
     }
 
     /**
-     * Generate files json for a specify package
+     * Generate files json for a specify package.
      *
      * @param string $string
      *
      * @return object
      */
-    public static function generateTranslations($is_package, $package, $translationsPath, $toLangs='es')
+    public static function generateTranslations($is_package, $package, $translationsPath, $toLangs = 'es')
     {
         if ($is_package) {
             $path = realpath(__DIR__.'./../../../'.$package.$translationsPath);
@@ -50,9 +50,9 @@ class Builder
         $files = glob($path.'/*.php');
         foreach ($files as $file) {
             foreach ($toLangs as $lang) {
-                $lines = include($file);
+                $lines = include $file;
                 $array = self::transArray($lines, $lang);
-                $data = '<?php return '.str_replace(')',']',str_replace('array (','[',str_replace(")'",']',str_replace("'array (", '[', $array)))).";\n";
+                $data = '<?php return '.str_replace(')', ']', str_replace('array (', '[', str_replace(")'", ']', str_replace("'array (", '[', $array)))).";\n";
 
                 $savePath = $path.'./../'.$lang.'/';
                 if (!file_exists($savePath)) {
@@ -82,9 +82,9 @@ class Builder
                 $array[$var] = self::trans($entry, $vars)->from('en')->to($lang)->Save(false)->__toString();
             }
         }
+
         return stripslashes(var_export($array, true));
     }
-
 
     /**
      * Get the languages that translations has been translated.
