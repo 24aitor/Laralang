@@ -8,6 +8,8 @@ return [
     */
     'default'   => [
         'autosave'       => true,
+        'autoload'       => true,
+        'migrations'     => true,
         'debug'          => false,
         'routes'         => true,
         'api'            => false,

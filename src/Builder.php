@@ -79,7 +79,7 @@ class Builder
                 foreach ($vars as $key => $varreplace) {
                     $entry = str_replace($varreplace, 'VAR_'.$key, $entry);
                 }
-                $array[$var] = self::trans($entry, $vars)->from('en')->to($lang)->Save(false)->__toString();
+                $array[$var] = self::trans($entry, $vars)->from('en')->to($lang)->load(false)->Save(false)->__toString();
             }
         }
 

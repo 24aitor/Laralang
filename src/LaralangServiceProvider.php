@@ -25,7 +25,9 @@ class LaralangServiceProvider extends ServiceProvider
         $router->aliasMiddleware('laralang.middleware', config('laralang.default.middleware'));
 
         $this->loadTranslationsFrom(__DIR__.'/translations', 'laralang');
-        $this->loadMigrationsFrom(__DIR__.'/Migrations', 'laralang');
+        if (config('laralang.default.migrations')) {
+            $this->loadMigrationsFrom(__DIR__.'/Migrations', 'laralang');
+        }
 
         $this->loadViewsFrom(__DIR__.'/Views', 'laralang');
     }

@@ -17,6 +17,8 @@ class Translation
     public $from;
     public $to;
     public $save;
+    public $vars;
+    public $load;
 
     /**
      * Setup default values.
@@ -28,6 +30,7 @@ class Translation
         $this->translator = config('laralang.default.translator');
         $this->debug = config('laralang.default.debug');
         $this->save = config('laralang.default.autosave');
+        $this->load = config('laralang.default.autoload');
         $this->from = config('laralang.default.from_lang');
         $this->to = config('laralang.default.to_lang');
         $this->string = $string;
@@ -101,6 +104,18 @@ class Translation
     public function Save($save)
     {
         $this->save = $save;
+
+        return $this;
+    }
+
+    /**
+     * Setup load option.
+     *
+     * @param bool $load
+     */
+    public function load($load)
+    {
+        $this->load = $load;
 
         return $this;
     }
@@ -190,7 +205,7 @@ class Translation
             }
 
             return $this->string;
-        } elseif (!$this->loadIfExists()) {
+        } elseif (!$this->load || !$this->loadIfExists()) {
             $this->main();
         }
         $this->replaceVars();
