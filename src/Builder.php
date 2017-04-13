@@ -42,7 +42,7 @@ class Builder
     public static function generateTranslations($is_package, $package, $translationsPath, $toLangs = 'es')
     {
         if ($is_package) {
-            $path = realpath(__DIR__.'./../../../'.$package.$translationsPath);
+            $path = realpath(__DIR__.'/../../../'.$package.$translationsPath);
         } else {
             $path = resource_path().'/'.$translationsPath;
         }
@@ -71,13 +71,13 @@ class Builder
                 $array[$var] = self::transArray($text, $lang);
             } else {
                 foreach (explode(' ', $text) as $word) {
-                    if (strpos(':', $word) !== false && substr($word, -1) != ':') {
+                    if (strpos($word, ':') !== false && mb_substr($word, -1) != ':') {
                         array_push($vars, $word);
                     }
                 }
                 $entry = $text;
                 foreach ($vars as $key => $varreplace) {
-                    $entry = str_replace($varreplace, 'VAR_'.$key, $entry);
+                    $entry = str_replace($varreplace, 'VAR'.$key, $entry);
                 }
                 $array[$var] = self::trans($entry, $vars)->from('en')->to($lang)->load(false)->Save(false)->__toString();
             }
