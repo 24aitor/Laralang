@@ -71,7 +71,7 @@ class Builder
                 $array[$var] = self::transArray($text, $lang);
             } else {
                 foreach (explode(' ', $text) as $word) {
-                    if (substr($word, 0, 1) == ':' && !in_array($word, $vars)) {
+                    if (strpos(':', $word) !== false && substr($word, -1) != ':') {
                         array_push($vars, $word);
                     }
                 }
