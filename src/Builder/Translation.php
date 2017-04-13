@@ -189,7 +189,7 @@ class Translation
     private function replaceVars()
     {
         foreach ($this->vars as $key => $var) {
-            $this->translation = str_replace('VAR'.$key, $var, $this->translation);
+            $this->translation = str_replace('var'.$key, $var, $this->translation);
         }
     }
 
