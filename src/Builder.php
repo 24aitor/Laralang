@@ -54,11 +54,11 @@ class Builder
                 $array = self::transArray($lines, $lang);
                 $data = '<?php return '.str_replace(')', ']', str_replace('array (', '[', str_replace(")'", ']', str_replace("'array (", '[', $array)))).";\n";
 
-                $savePath = $path.'./../'.$lang.'/';
-                if (!file_exists($savePath)) {
+                $savePath = $path.'/../'.$lang;
+                if (!is_dir($savePath)) {
                     mkdir($savePath, 0777, true);
                 }
-                file_put_contents($savePath.basename($file), $data);
+                file_put_contents($savePath.'/'.basename($file), $data);
             }
         }
     }
