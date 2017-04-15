@@ -77,7 +77,7 @@ class Builder
                 }
                 $entry = $text;
                 foreach ($vars as $key => $varreplace) {
-                    $entry = str_replace($varreplace, 'var'.$key, $entry);
+                    $entry = str_replace($varreplace, '14741469'.$key, $entry);
                 }
                 $array[$var] = self::trans($entry, $vars)->from('en')->to($lang)->load(false)->Save(false)->__toString();
             }
