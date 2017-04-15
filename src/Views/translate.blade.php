@@ -14,8 +14,8 @@
             <br>
             <br>
             <div id="loader" style="display:none">
-                Translating...&nbsp;&nbsp;&nbsp;
                 <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Gray_circles_rotate.gif" style="height:60px;" alt="">
+                Translating...&nbsp;&nbsp;&nbsp;
                 <br><br><br>
             </div>
             <form method="POST" id="myform">
@@ -40,7 +40,7 @@
                   <div class="col-sm-12 col-lg-6">
                       <div class="form-group">
                         <label for="to_langs">Languages to translate</label>
-                        <input type="text" class="form-control" id="to_langs" name="to_langs" value="es|fr|ca">
+                        <input type="text" class="form-control" id="to_langs" name="to_langs" value="es|fr|ca|de|it">
                       </div>
                   </div>
               </div>
