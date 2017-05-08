@@ -16,10 +16,10 @@ class LaralangTranslations extends Migration
         Schema::create('laralang_translations', function (Blueprint $table) {
             $table->increments('id');
             $table->string('translator');
-            $table->string('string');
+            $table->text('string');
             $table->string('from_lang');
             $table->string('to_lang');
-            $table->string('translation');
+            $table->text('translation');
             $table->timestamps();
         });
     }

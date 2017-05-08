@@ -39,6 +39,6 @@ class LaralangServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->mergeConfigFrom(__DIR__.'/Config/laralang.php', 'laralang');
     }
 }
