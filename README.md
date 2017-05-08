@@ -17,7 +17,7 @@ from our admin panel.
 
 Moreover, allows you to translate PHP files easily and then save lot of time to you.
 
-# Why use Laralang?
+## Why use Laralang?
 
 Personally I think the best way to translate your website is using the Laravel methods such as ``@lang()`` but sometimes it's impossible.
 Imagine you have a blog, and you need to translate it to different languages. With Laralang it's soo easy to do it, only place a little code like
