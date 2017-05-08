@@ -5,7 +5,7 @@
 <p align="center">
     <a href="https://styleci.io/repos/69460815"><img src="https://styleci.io/repos/69460815/shield?branch=master" alt="StyleCI"></a>
     <a href="https://scrutinizer-ci.com/g/24aitor/laralang/?branch=master"><img src="https://img.shields.io/scrutinizer/g/24aitor/laralang.svg?style=flat-square" alt="Scrutinizer"></a>
-    <a href="https://packagist.org/packages/aitor24/laralang"><img src="https://poser.pugx.org/aitor24/laralang/v/stable?style=flat-square" alt="Latest Stable Version"></a>
+    <a href="https://packagist.org/packages/aitor24/laralang"><img src="https://poser.pugx.org/aitor24/laralang/v/stable?format=flat-square" alt="Latest Stable Version"></a>
     <a href="https://raw.githubusercontent.com/24aitor/laralang/master/LICENSE"><img src="https://img.shields.io/github/license/24aitor/laralang.svg?style=flat-square" alt="License"></a>
 </p>
 
