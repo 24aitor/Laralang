@@ -217,3 +217,9 @@ $.post('{{route("laralang::apiTranslate")}}', {'string' : 'This is my string to 
     var translatedText = response.translatedText;
 }, 'json');
 ```
+
+## Translating PHP files
+
+Laralum can generate Laravel translations files quickly by translating from english to language you want and savelot of time!
+
+*Soon will be added documentation*
