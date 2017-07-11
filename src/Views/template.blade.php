@@ -28,10 +28,14 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment-with-locales.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js"></script>
-
+        <style>
+            html, #app {
+                background-color:#f4f4f4;
+            }
+        </style>
     </head>
     <body>
-        <div id="app" style="background-color:#f4f4f4;">
+        <div id="app">
             @if(Route::currentRouteName() != 'laralang::login')
             <center>
             <div class="container" style="padding-top:60px">
