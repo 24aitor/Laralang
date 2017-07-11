@@ -25,7 +25,10 @@
                                     <button type="submit" class="btn btn-primary">Login <i class="mdi mdi-login"></i></button><br>
                                 </center>
                             </div>
-                            <small class="form-text" style="color:red;">{{ session('status') }}</small>
+                            <br><br><br>
+                            <center>
+                                <small class="form-text" style="color:red;">{{ session('status') }}</small>
+                            </center>
                         </div>
                     </form>
                 </div>
