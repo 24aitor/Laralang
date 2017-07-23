@@ -122,7 +122,7 @@ if (isset($from_lang) && isset($to_lang)) {
 
 @section('templates')
 <template id="translations-template">
-	<table class="table">
+	<table class="table table-responsive">
 	  <thead class="thead-inverse">
 	    <tr>
 	      <th>#</th>
