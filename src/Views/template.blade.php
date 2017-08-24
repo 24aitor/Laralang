@@ -9,7 +9,7 @@
         <!-- CDN of icons -->
         <link rel="stylesheet" href="http://cdn.materialdesignicons.com/1.7.22/css/materialdesignicons.min.css">
 
-        <link rel="icon" href="{{Aitor24\Linker\Facades\Linker::asset('vendor/Aitor24/Laralang/Images/icon.png')}}">
+        <link rel="icon" href="{{ asset('vendor/Aitor24/Laralang/Images/icon.png') }}">
 
 
         <title>@yield('title')</title>
@@ -50,10 +50,10 @@
             		  </button>
             		  <div class="dropdown-menu">
                           <center>
-                              <li><a href="{{ Aitor24\Linker\Facades\Linker::url('/') }}">Visit site</a></li>
+                              <li><a href="{{ url('/') }}">Visit site</a></li>
                               @yield('nav_elements')
                               <div class="dropdown-divider"></div>
-                              <li><a href="{{ Aitor24\Linker\Facades\Linker::route('laralang::logout') }}" class='logout'>Logout</a></li>
+                              <li><a href="{{ route('laralang::logout') }}" class='logout'>Logout</a></li>
                           </center>
             		  </div>
             		</div>
@@ -70,7 +70,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
-        <script src="https://unpkg.com/vue/dist/vue.js"></script>
+        <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mouse0270-bootstrap-notify/3.1.5/bootstrap-notify.js"></script>
         <!-- CDN of bootstrap-notify js -->

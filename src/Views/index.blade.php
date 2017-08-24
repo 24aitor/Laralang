@@ -5,9 +5,9 @@
 <div class="container" style="padding-bottom:100px;margin-top:100px;">
     @php
         $actions = [
-            'View DB translations' => Aitor24\Linker\Facades\Linker::route('laralang::translations'),
-            'Filter DB translations' => Aitor24\Linker\Facades\Linker::route('laralang::filter'),
-            'Translate php files' => Aitor24\Linker\Facades\Linker::route('laralang::translate'),
+            'View DB translations' => route('laralang::translations'),
+            'Filter DB translations' => route('laralang::filter'),
+            'Translate php files' => route('laralang::translate'),
         ];
     @endphp
     @foreach ($actions as $name => $link)

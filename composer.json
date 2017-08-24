@@ -3,8 +3,7 @@
     "description": "This package let you translate strings from any language to another in laravel 5.X",
     "require": {
         "php": ">=5.6.4",
-        "laravel/framework": "v5.4.*",
-        "aitor24/linker": ">=1.0.2"
+        "laravel/framework": "v5.4.*"
     },
     "type": "translations",
     "license": "MIT",
@@ -26,5 +25,15 @@
 		"psr-4": {
 			"Aitor24\\Laralang\\": "./src"
 		}
-	}
+	},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Aitor24\\Laralang\\LaralangServiceProvider"
+            ],
+            "aliases": {
+                "Laralang": "Aitor24\\Laralang\\Facades\\Laralang"
+            }
+        }
+    },"minimum-stability": "dev"
 }

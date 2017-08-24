@@ -2,8 +2,8 @@
 @section('title', 'Translate - Laralang')
 @section('page_title', 'Translate files')
 @section('nav_elements')
-    <li style="padding-top:8px"><a href="{{ Aitor24\Linker\Facades\Linker::route('laralang::translations') }}">Translations</a></li>
-    <li style="padding-top:8px"><a href="{{ Aitor24\Linker\Facades\Linker::route('laralang::filter') }}">Filter</a></li>
+    <li style="padding-top:8px"><a href="{{ route('laralang::translations') }}">Translations</a></li>
+    <li style="padding-top:8px"><a href="{{ route('laralang::filter') }}">Filter</a></li>
 @endsection
 @section('content')
 <center>
